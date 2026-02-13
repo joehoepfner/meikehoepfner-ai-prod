@@ -38,7 +38,7 @@
         [x-cloak] { display: none !important; }
     </style>
 </head>
-<body class="font-sans text-gray-700 antialiased bg-red-500" x-data="{ mobileMenuOpen: false, modal: null }">
+<body class="font-sans text-gray-700 antialiased bg-red-500" x-data="{ mobileMenuOpen: false, modal: null, cookieAccepted: localStorage.getItem('cookieAccepted') === 'true', showCookieBanner: localStorage.getItem('cookieAccepted') !== 'true' }">
 
     <nav class="fixed w-full z-40 bg-white/95 backdrop-blur-sm shadow-sm border-b border-gray-100 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -385,6 +385,23 @@
             </div>
         </div>
     </footer>
+
+    <!-- Cookie Banner -->
+    <div x-cloak x-show="showCookieBanner" 
+         class="fixed inset-x-0 bottom-0 z-50 p-4 bg-gray-900 text-white shadow-lg md:flex md:items-center md:justify-between">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+            <p class="text-sm text-center md:text-left">
+                Wir verwenden Cookies, um Ihre Erfahrung auf unserer Website zu verbessern. Durch die Nutzung unserer Website stimmen Sie der Verwendung von Cookies zu.
+                <button @click="modal = 'privacy'" class="text-gold hover:underline ml-1">Weitere Informationen</button>
+            </p>
+            <div class="flex flex-shrink-0 gap-3 mt-4 md:mt-0">
+                <button @click="cookieAccepted = true; localStorage.setItem('cookieAccepted', 'true'); showCookieBanner = false;" 
+                        class="bg-gold text-gray-900 px-5 py-2 rounded text-sm font-medium hover:bg-yellow-600 transition-colors shadow-lg">
+                    Cookies akzeptieren
+                </button>
+            </div>
+        </div>
+    </div>
 
     <div x-show="modal" class="fixed inset-0 z-50 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true" style="display: none;">
         <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
