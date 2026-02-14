@@ -1,469 +1,738 @@
-<!DOCTYPE html>
-<html lang="de" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="noindex, nofollow">
-    <title>Meike Höpfner | Diplom-Übersetzerin & Dolmetscherin</title>
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            DEFAULT: '#0d3471', // Dein Original-Blau
-                            light: '#1e4b96',
-                            dark: '#08204a',
-                        },
-                        gold: '#c5a059' // Akzentfarbe für "Premium"-Look
-                    },
-                    fontFamily: {
-                        serif: ['"Playfair Display"', 'serif'],
-                        sans: ['"Inter"', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        [x-cloak] { display: none !important; }
-    </style>
-</head>
-<body class="font-sans text-gray-700 antialiased bg-red-500" x-data="{ mobileMenuOpen: false, modal: null, cookieAccepted: localStorage.getItem('cookieAccepted') === 'true', showCookieBanner: localStorage.getItem('cookieAccepted') !== 'true' }">
-
-    <nav class="fixed w-full z-40 bg-white/95 backdrop-blur-sm shadow-sm border-b border-gray-100 transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <div class="flex-shrink-0 flex items-center">
-                    <a href="#" class="font-serif text-2xl text-brand font-bold tracking-tight">
-                        Meike Höpfner
-                        <span class="block text-xs font-sans text-gold font-medium uppercase tracking-widest mt-0.5">Translation Services</span>
-                    </a>
-                </div>
-                
-                <div class="hidden md:flex space-x-8 items-center">
-                    <a href="#expertise" class="text-sm font-medium text-gray-600 hover:text-brand transition-colors">Fachgebiete</a>
-                    <a href="#references" class="text-sm font-medium text-gray-600 hover:text-brand transition-colors">Referenzen</a>
-                    <a href="#about" class="text-sm font-medium text-gray-600 hover:text-brand transition-colors">Profil</a>
-                    <a href="#contact" class="bg-brand text-white px-5 py-2.5 rounded text-sm font-medium hover:bg-brand-dark transition-colors shadow-lg shadow-brand/20">
-                        Kontakt aufnehmen
-                    </a>
-                    <div class="border-l pl-4 ml-4 flex space-x-2 text-xs font-bold text-gray-400">
-                        <span class="text-brand cursor-default">DE</span>
-                        <a href="#" class="hover:text-brand transition-colors">EN</a>
-                        <a href="#" class="hover:text-brand transition-colors">IT</a>
-                    </div>
-                </div>
-
-                <div class="md:hidden flex items-center">
-                    <button @click="mobileMenuOpen = !mobileMenuOpen" class="text-gray-500 hover:text-brand focus:outline-none">
-                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <div x-show="mobileMenuOpen" @click.away="mobileMenuOpen = false" x-transition class="md:hidden bg-white border-t border-gray-100 absolute w-full z-50">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#expertise" @click="mobileMenuOpen = false" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-brand hover:bg-gray-50">Fachgebiete</a>
-                <a href="#references" @click="mobileMenuOpen = false" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-brand hover:bg-gray-50">Referenzen</a>
-                <a href="#about" @click="mobileMenuOpen = false" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-brand hover:bg-gray-50">Profil</a>
-                <a href="#contact" @click="mobileMenuOpen = false" class="block px-3 py-2 text-base font-medium text-brand font-bold hover:bg-gray-50">Kontakt</a>
-            </div>
-        </div>
-    </nav>
-
-    <section class="relative bg-brand pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
-        <div class="absolute inset-0 opacity-10" style="background-image: url('https://www.transparenttextures.com/patterns/cubes.png');"></div>
-        
-        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center lg:text-left flex flex-col lg:flex-row items-center">
-            <div class="lg:w-1/2 lg:pr-12">
-                <span class="inline-block py-1 px-3 rounded bg-blue-900/50 border border-blue-700 text-blue-100 text-xs font-bold tracking-widest uppercase mb-6">
-                    Gerichtlich ermächtigt
-                </span>
-                <h1 class="text-4xl lg:text-6xl font-serif font-bold text-white leading-tight mb-6">
-                    Meike Höpfner – <span class="text-gold italic">Fachübersetzungen mit Herz</span>
-                </h1>
-                <p class="text-lg text-blue-100 mb-8 max-w-2xl leading-relaxed">
-                    Diplom-Übersetzerin für Englisch und Italienisch. <br>
-                    Spezialisiert auf Recht, Politik, Marketing und Wissenschaft.
-                    European MA in Linguistics.
-                </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                    <a href="#contact" class="bg-gold text-white px-8 py-3.5 rounded font-medium hover:bg-yellow-600 transition-colors shadow-lg">
-                        Angebot anfordern
-                    </a>
-                    <a href="#expertise" class="border border-white/30 text-white px-8 py-3.5 rounded font-medium hover:bg-white/10 transition-colors">
-                        Leistungen ansehen
-                    </a>
-                </div>
-            </div>
-            <div class="lg:w-1/2 mt-12 lg:mt-0 relative">
-                <div class="relative rounded-lg overflow-hidden shadow-2xl border-4 border-white/10">
-                    <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Legal Documents" class="w-full h-auto object-cover opacity-90">
-                    <div class="absolute inset-0 bg-brand/20 mix-blend-multiply"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="bg-brand-dark py-8 border-t border-white/10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap justify-center lg:justify-between gap-8 text-blue-200 text-sm font-medium uppercase tracking-wider text-center">
-            <div class="flex items-center gap-3">
-                <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                Muttersprachliches Niveau
-            </div>
-            <div class="flex items-center gap-3">
-                <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                Über 25 Jahre Erfahrung
-            </div>
-            <div class="flex items-center gap-3">
-                <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
-                FASK Germersheim Absolventin
-            </div>
-        </div>
-    </div>
-
-    <section id="expertise" class="py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-3xl md:text-4xl font-serif font-bold text-brand mb-4">Fachgebiete & Expertise</h2>
-                <div class="w-16 h-1 bg-gold mx-auto mb-6"></div>
-                <p class="text-gray-600">
-                    Hochspezialisierte Übersetzungen erfordern mehr als nur Sprachkenntnisse. Sie erfordern tiefes Fachwissen.
-                </p>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="group bg-gray-50 p-8 rounded-lg hover:bg-white hover:shadow-xl transition-all duration-300 border border-gray-100">
-                    <div class="w-12 h-12 bg-brand/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-brand group-hover:text-white transition-colors text-brand">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"></path></svg>
-                    </div>
-                    <h3 class="text-xl font-serif font-bold text-gray-900 mb-3">Recht & Politik</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed mb-4">
-                        Verträge, Urkunden, Gerichtsurteile, Sachverständigengutachten und Gesetzesentwürfe.
-                        <br><br>
-                        <span class="text-brand font-semibold text-xs uppercase tracking-wide">Inklusive Beglaubigung</span>
-                    </p>
-                </div>
-
-                <div class="group bg-gray-50 p-8 rounded-lg hover:bg-white hover:shadow-xl transition-all duration-300 border border-gray-100">
-                    <div class="w-12 h-12 bg-brand/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-brand group-hover:text-white transition-colors text-brand">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
-                    </div>
-                    <h3 class="text-xl font-serif font-bold text-gray-900 mb-3">Marketing & Kultur</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed mb-4">
-                        Websites, Imagebroschüren, Dokumentarfilme, Architektur und Kunstausstellungen. Anpassung an die Zielkultur.
-                    </p>
-                </div>
-
-                <div class="group bg-gray-50 p-8 rounded-lg hover:bg-white hover:shadow-xl transition-all duration-300 border border-gray-100">
-                    <div class="w-12 h-12 bg-brand/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-brand group-hover:text-white transition-colors text-brand">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
-                    </div>
-                    <h3 class="text-xl font-serif font-bold text-gray-900 mb-3">Medizin & Wissenschaft</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed mb-4">
-                        Klinische Studien, Patientenhandbücher, wissenschaftliche Artikel und neurologische Forschung.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="references" class="py-24 bg-gray-50 border-t border-gray-200" x-data="{ activeTab: 'projects' }">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-3xl md:text-4xl font-serif font-bold text-brand mb-4">Referenzen & Projekte</h2>
-                <div class="w-16 h-1 bg-gold mx-auto mb-6"></div>
-                <p class="text-gray-600">
-                    Eine Auswahl meiner langjährigen Zusammenarbeit mit Direktkunden, Agenturen und Institutionen.
-                </p>
-            </div>
-
-            <div class="flex flex-wrap justify-center gap-2 mb-12">
-                <button @click="activeTab = 'projects'" :class="activeTab === 'projects' ? 'bg-brand text-white border-brand' : 'text-gray-500 border-gray-200 hover:text-brand'" class="px-6 py-3 text-sm font-bold uppercase tracking-wider rounded border transition-colors">
-                    Größere Projekte
-                </button>
-                <button @click="activeTab = 'clients'" :class="activeTab === 'clients' ? 'bg-brand text-white border-brand' : 'text-gray-500 border-gray-200 hover:text-brand'" class="px-6 py-3 text-sm font-bold uppercase tracking-wider rounded border transition-colors">
-                    Direktkunden
-                </button>
-                <button @click="activeTab = 'agencies'" :class="activeTab === 'agencies' ? 'bg-brand text-white border-brand' : 'text-gray-500 border-gray-200 hover:text-brand'" class="px-6 py-3 text-sm font-bold uppercase tracking-wider rounded border transition-colors">
-                    Agenturen
-                </button>
-            </div>
-
-            <div x-show="activeTab === 'projects'" x-transition.opacity>
-                <div class="bg-white p-8 rounded-lg border-l-4 border-gold shadow-sm">
-                    <h3 class="text-xl font-serif font-bold text-gray-900 mb-6">Ausgewählte Großprojekte</h3>
-                    <div class="grid md:grid-cols-2 gap-6 text-sm text-gray-700">
-                        <ul class="space-y-3 list-disc list-inside marker:text-gold">
-                            <li><strong>Extra neues Projekt</strong></li>
-                            <li><strong>Expo 2000 Hannover:</strong> Offizieller Führer, Imagebroschüren, Pressemitteilungen.</li>
-                            <li><strong>Bauhaus-Archiv Berlin:</strong> Ausstellungskataloge, Audioguides.</li>
-                            <li><strong>Humboldt-Universität Berlin:</strong> Webseiten, wissenschaftliche Publikationen.</li>
-                            <li><strong>Sony Europe:</strong> Marketingmaterialien, interne Kommunikation.</li>
-                            <li><strong>SNCF Paris:</strong> Technische Dokumentationen, touristische Informationen.</li>
-                        </ul>
-                        <ul class="space-y-3 list-disc list-inside marker:text-gold">
-                            <li><strong>BBC World London:</strong> Untertitelung, Skripte.</li>
-                            <li><strong>eBay GmbH:</strong> Lokalisierung Benutzeroberfläche, AGBs.</li>
-                            <li><strong>Stiftung Preußischer Kulturbesitz:</strong> Fachartikel.</li>
-                            <li><strong>Max-Born-Institut:</strong> Wissenschaftliche Forschungsberichte.</li>
-                            <li><strong>TimeOut Guides:</strong> Reiseführer Berlin & München.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div x-show="activeTab === 'clients'" x-transition.opacity style="display:none;">
-                <div class="bg-white p-8 rounded-lg shadow-sm">
-                    <h3 class="text-xl font-serif font-bold text-gray-900 mb-6">Direktkunden (Auszug)</h3>
-                    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 text-sm text-gray-600">
-                        <div class="p-3 bg-gray-50 rounded border border-gray-100">AIAG International</div>
-                        <div class="p-3 bg-gray-50 rounded border border-gray-100">alias film GmbH</div>
-                        <div class="p-3 bg-gray-50 rounded border border-gray-100">Apoint Film</div>
-                        <div class="p-3 bg-gray-50 rounded border border-gray-100">ANTHROPOS</div>
-                        <div class="p-3 bg-gray-50 rounded border border-gray-100">BBC World</div>
-                        <div class="p-3 bg-gray-50 rounded border border-gray-100">Bintang Buchservice</div>
-                        <div class="p-3 bg-gray-50 rounded border border-gray-100">Dade-Behring</div>
-                        <div class="p-3 bg-gray-50 rounded border border-gray-100">eBay GmbH</div>
-                        <div class="p-3 bg-gray-50 rounded border border-gray-100">Eikon Media GmbH</div>
-                        <div class="p-3 bg-gray-50 rounded border border-gray-100">EXPO 2000 Hannover</div>
-                        <div class="p-3 bg-gray-50 rounded border border-gray-100">Forbo, Schweiz</div>
-                        <div class="p-3 bg-gray-50 rounded border border-gray-100">Geyst AG, Zürich</div>
-                        <div class="p-3 bg-gray-50 rounded border border-gray-100">Guide to Iceland</div>
-                        <div class="p-3 bg-gray-50 rounded border border-gray-100">Hoeppner Anwälte</div>
-                        <div class="p-3 bg-gray-50 rounded border border-gray-100">IB Vogt GmbH</div>
-                        <div class="p-3 bg-gray-50 rounded border border-gray-100">Stefan-Loose-Verlag</div>
-                        <div class="p-3 bg-gray-50 rounded border border-gray-100">Project A Ventures</div>
-                        <div class="p-3 bg-gray-50 rounded border border-gray-100">SECURITAS Berlin</div>
-                        <div class="p-3 bg-gray-50 rounded border border-gray-100">Sony Europe GmbH</div>
-                    </div>
-                </div>
-            </div>
-
-            <div x-show="activeTab === 'agencies'" x-transition.opacity style="display:none;">
-                <div class="bg-white p-8 rounded-lg shadow-sm">
-                    <h3 class="text-xl font-serif font-bold text-gray-900 mb-6">Partner-Agenturen</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                        <div class="flex items-center space-x-3 p-3 bg-gray-50 rounded shadow-sm">
-                            <span class="text-gray-700 font-medium">Eubylon GmbH, Berlin</span>
-                        </div>
-                        <div class="flex items-center space-x-3 p-3 bg-gray-50 rounded shadow-sm">
-                            <span class="text-gray-700 font-medium">Euroscript Deutschland</span>
-                        </div>
-                        <div class="flex items-center space-x-3 p-3 bg-gray-50 rounded shadow-sm">
-                            <span class="text-gray-700 font-medium">Sprachendienst Kauczor</span>
-                        </div>
-                        <div class="flex items-center space-x-3 p-3 bg-gray-50 rounded shadow-sm">
-                            <span class="text-gray-700 font-medium">Lingolinx, Berlin</span>
-                        </div>
-                        <div class="flex items-center space-x-3 p-3 bg-gray-50 rounded shadow-sm">
-                            <span class="text-gray-700 font-medium">SDL International</span>
-                        </div>
-                        <div class="flex items-center space-x-3 p-3 bg-gray-50 rounded shadow-sm">
-                            <span class="text-gray-700 font-medium">TransMission GbR</span>
-                        </div>
-                         <div class="flex items-center space-x-3 p-3 bg-gray-50 rounded shadow-sm">
-                            <span class="text-gray-700 font-medium">Transparent Language Solutions</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="about" class="py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col lg:flex-row gap-16 items-center">
-                <div class="lg:w-1/2">
-                    <div class="relative">
-                        <div class="w-full h-96 bg-gray-200 rounded-lg shadow-lg overflow-hidden relative flex items-center justify-center">
-                             <img src="images/dummy-1360x840-Dragonfly.jpg" alt="Meike Höpfner Portrait" class="w-full h-full object-cover">
-                             </div>
-                        <div class="absolute -bottom-6 -right-6 bg-white p-6 rounded shadow-lg max-w-xs hidden md:block">
-                            <p class="font-serif text-brand text-lg italic">"Qualität durch Kompetenz und Erfahrung."</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="lg:w-1/2">
-                    <h2 class="text-3xl font-serif font-bold text-brand mb-6">Meike Höpfner</h2>
-                    <h3 class="text-lg text-gray-500 font-medium mb-6">Diplom-Übersetzerin (FASK) & European MA in Linguistics</h3>
-                    
-                    <div class="space-y-4 text-gray-600 mb-8">
-                        <p>
-                            Seit 1997 bin ich als freiberufliche Übersetzerin tätig. Meine Ausbildung an der renommierten 
-                            <strong>FASK Germersheim</strong> sowie Studienaufenthalte in Manchester und Berlin bilden das Fundament meiner Arbeit.
-                        </p>
-                        <p>
-                            Ich biete nicht nur die bloße Übersetzung, sondern die kulturelle Adaption Ihrer Texte. 
-                            Durch mein Netzwerk an Muttersprachlern garantiere ich höchste Authentizität in Deutsch, Englisch und Italienisch.
-                        </p>
-                    </div>
-
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="border-l-2 border-brand pl-4">
-                            <span class="block text-2xl font-bold text-gray-900">1997</span>
-                            <span class="text-sm text-gray-500">Freiberuflich tätig seit</span>
-                        </div>
-                        <div class="border-l-2 border-brand pl-4">
-                            <span class="block text-2xl font-bold text-gray-900">3</span>
-                            <span class="text-sm text-gray-500">Arbeitssprachen</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="py-24 bg-brand text-white relative">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="bg-white text-gray-800 rounded-xl shadow-2xl overflow-hidden">
-                <div class="grid md:grid-cols-2">
-                    
-                    <div class="p-10 bg-gray-50">
-                        <h2 class="text-2xl font-serif font-bold text-brand mb-6">Kontakt</h2>
-                        <div class="space-y-6">
-                            <div>
-                                <h4 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Deutschland</h4>
-                                <p class="font-medium text-gray-800">D-76829 Landau (Pfalz)</p>
-                                <p class="text-brand">+49 (0)173 605 68 04</p>
-                            </div>
-                            <div>
-                                <h4 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Schweiz</h4>
-                                <p class="text-brand">+41 (0)76 446 84 04</p>
-                            </div>
-                            <div>
-                                <h4 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">E-Mail</h4>
-                                <a href="mailto:info@meikehoepfner.de" class="text-brand underline">info@meikehoepfner.de</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="p-10">
-                        <form name="contact" method="POST" data-netlify="true" class="space-y-4">
-                            <div>
-                                <label class="block text-xs font-bold text-gray-500 uppercase mb-1">Name</label>
-                                <input type="text" name="name" class="w-full border-gray-200 border-b-2 bg-transparent py-2 focus:outline-none focus:border-brand transition-colors" placeholder="Ihr Name">
-                            </div>
-                            <div>
-                                <label class="block text-xs font-bold text-gray-500 uppercase mb-1">E-Mail</label>
-                                <input type="email" name="email" class="w-full border-gray-200 border-b-2 bg-transparent py-2 focus:outline-none focus:border-brand transition-colors" placeholder="ihre@email.de">
-                            </div>
-                            <div>
-                                <label class="block text-xs font-bold text-gray-500 uppercase mb-1">Nachricht</label>
-                                <textarea name="message" rows="3" class="w-full border-gray-200 border-b-2 bg-transparent py-2 focus:outline-none focus:border-brand transition-colors" placeholder="Ihre Anfrage..."></textarea>
-                            </div>
-                            <button type="submit" class="w-full bg-brand text-white font-bold py-3 rounded mt-4 hover:bg-brand-dark transition-colors">
-                                Nachricht senden
-                            </button>
-                        </form>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="bg-brand-dark text-blue-300/60 py-12 text-sm border-t border-white/5">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <p>&copy; 2026 Meike Höpfner. Alle Rechte vorbehalten.</p>
-            <div class="mt-4 space-x-4">
-                <button @click="modal = 'impressum'" class="hover:text-white transition-colors">Impressum</button>
-                <button @click="modal = 'privacy'" class="hover:text-white transition-colors">Datenschutz</button>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Cookie Banner -->
-    <div x-cloak x-show="showCookieBanner" 
-         class="fixed inset-x-0 bottom-0 z-50 p-4 bg-gray-900 text-white shadow-lg md:flex md:items-center md:justify-between">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-            <p class="text-sm text-center md:text-left">
-                Wir verwenden Cookies, um Ihre Erfahrung auf unserer Website zu verbessern. Durch die Nutzung unserer Website stimmen Sie der Verwendung von Cookies zu.
-                <button @click="modal = 'privacy'" class="text-gold hover:underline ml-1">Weitere Informationen</button>
-            </p>
-            <div class="flex flex-shrink-0 gap-3 mt-4 md:mt-0">
-                <button @click="cookieAccepted = true; localStorage.setItem('cookieAccepted', 'true'); showCookieBanner = false;" 
-                        class="bg-gold text-gray-900 px-5 py-2 rounded text-sm font-medium hover:bg-yellow-600 transition-colors shadow-lg">
-                    Cookies akzeptieren
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <div x-show="modal" class="fixed inset-0 z-50 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true" style="display: none;">
-        <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
-            <div x-show="modal" x-transition.opacity class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" @click="modal = null"></div>
-
-            <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
-
-            <div x-show="modal" x-transition.scale class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-3xl sm:w-full">
-                
-                <div class="absolute top-0 right-0 pt-4 pr-4">
-                    <button @click="modal = null" class="bg-white rounded-md text-gray-400 hover:text-gray-500 focus:outline-none">
-                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                        </svg>
-                    </button>
-                </div>
-
-                <div x-show="modal === 'impressum'" class="p-8">
-                    <h3 class="text-2xl font-serif font-bold text-brand mb-6">Impressum</h3>
-                    <div class="prose prose-sm text-gray-600">
-                        <p><strong>Meike Höpfner</strong><br>
-                        Dipl.-Übersetzerin für Englisch, Deutsch und Italienisch<br>
-                        Gerichtlich ermächtigt - European MA in Linguistics</p>
-                        
-                        <p>Berliner Str. 12<br>
-                        D-76829 Landau</p>
-                        
-                        <p>Telefon: +49 (0)173 605 68 04<br>
-                        E-Mail: info@meikehoepfner.de</p>
-                        
-                        <p><strong>Umsatzsteuer-Identifikationsnummer gemäß § 27a Umsatzsteuergesetz:</strong><br>
-                        DE 185535799</p>
-                        
-                        <p><strong>Haftungshinweis:</strong><br>
-                        Trotz sorgfältiger inhaltlicher Kontrolle übernehmen wir keine Haftung für die Inhalte externer Links. Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich.</p>
-                        
-                        <p class="text-xs text-gray-400 mt-8">Webdesign: rincon.de | Fotos: © fotolia</p>
-                    </div>
-                </div>
-
-                <div x-show="modal === 'privacy'" class="p-8">
-                    <h3 class="text-2xl font-serif font-bold text-brand mb-6">Datenschutzerklärung</h3>
-                    <div class="prose prose-sm text-gray-600 max-h-[60vh] overflow-y-auto pr-2">
-                        <h4 class="font-bold text-gray-900 mt-4">Verantwortlicher</h4>
-                        <p>Meike Höpfner, Berliner Str. 12, D-76829 Landau, Telefon: +49 (0)173 605 68 04, E-Mail: info@meikehoepfner.de</p>
-
-                        <h4 class="font-bold text-gray-900 mt-4">Allgemeines</h4>
-                        <p>Wir nehmen den Schutz Ihrer persönlichen Daten ernst. Die Nutzung unserer Webseite ist in der Regel ohne Angabe personenbezogener Daten möglich. Soweit auf unseren Seiten personenbezogene Daten (beispielsweise Name, Anschrift oder E-Mail-Adressen) erhoben werden, erfolgt dies, soweit möglich, stets auf freiwilliger Basis.</p>
-
-                        <h4 class="font-bold text-gray-900 mt-4">Kontaktformular</h4>
-                        <p>Wenn Sie uns per Kontaktformular Anfragen zukommen lassen, werden Ihre Angaben aus dem Anfrageformular inklusive der von Ihnen dort angegebenen Kontaktdaten zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.</p>
-
-                        <h4 class="font-bold text-gray-900 mt-4">Server-Log-Files</h4>
-                        <p>Der Provider der Seiten erhebt und speichert automatisch Informationen in so genannten Server-Log Files, die Ihr Browser automatisch an uns übermittelt. Dies sind: Browsertyp/ Browserversion, verwendetes Betriebssystem, Referrer URL, Hostname des zugreifenden Rechners, Uhrzeit der Serveranfrage. Diese Daten sind nicht bestimmten Personen zuordenbar.</p>
-
-                        <h4 class="font-bold text-gray-900 mt-4">SSL-Verschlüsselung</h4>
-                        <p>Diese Seite nutzt aus Gründen der Sicherheit und zum Schutz der Übertragung vertraulicher Inhalte, wie zum Beispiel der Anfragen, die Sie an uns als Seitenbetreiber senden, eine SSL
-</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</body>
-</html>
+PCFET0NUWVBFIGh0bWw+CjxodG1sIGxhbmc9ImRlIiBjbGFzcz0ic2Nyb2xs
+LXNtb290aCI+CjxoZWFkPgogICAgPG1ldGEgY2hhcnNldD0iVVRGLTgiPgog
+ICAgPG1ldGEgbmFtZT0idmlld3BvcnQiIGNvbnRlbnQ9IndpZHRoPWRldmlj
+ZS13aWR0aCwgaW5pdGlhbC1zY2FsZT0xLjAiPgogICAgPG1ldGEgbmFtZT0i
+cm9ib3RzIiBjb250ZW50PSJub2luZGV4LCBub2ZvbGxvdyI+CiAgICA8dGl0
+bGU+TWVpa2UgSMO2cGZuZXIgfCBEaXBsb20tw5xiZXJzZXR6ZXJpbiAmIERv
+bG1ldHNjaGVyaW48L3RpdGxlPgogICAgCiAgICA8c2NyaXB0IHNyYz0iaHR0
+cHM6Ly9jZG4udGFpbHdpbmRjc3MuY29tIj48L3NjcmlwdD4KICAgIAogICAg
+PGxpbmsgcmVsPSJwcmVjb25uZWN0IiBocmVmPSJodHRwczovL2ZvbnRzLmdv
+b2dsZWFwaXMuY29tIj4KICAgIDxsaW5rIHJlbD0icHJlY29ubmVjdCIgaHJl
+Zj0iaHR0cHM6Ly9mb250cy5nc3RhdGljLmNvbSIgY3Jvc3NvcmlnaW4+CiAg
+ICA8bGluayBocmVmPSJodHRwczovL2ZvbnRzLmdvb2dsZWFwaXMuY29tL2Nz
+czI/ZmFtaWx5PUludGVyOndnaHRAMzAwOzQwMDs2MDAmZmFtaWx5PVBsYXlm
+YWlyK0Rpc3BsYXk6aXRhbCx3Z2h0QDAsNDAwOzAsNjAwOzAsNzAwOzEsNDAw
+JmRpc3BsYXk9c3dhcCIgcmVsPSJzdHlsZXNoZWV0Ij4KICAgIAogICAgPHNj
+cmlwdCBkZWZlciBzcmM9Imh0dHBzOi8vY2RuLmpzZGVsaXZyLm5ldC9ucG0v
+YWxwaW5lanNAMy54LngvZGlzdC9jZG4ubWluLmpzIj48L3NjcmlwdD4KCiAg
+ICA8c2NyaXB0PgogICAgICAgIHRhaWx3aW5kLmNvbmZpZyA9IHsKICAgICAg
+ICAgICAgdGhlbWU6IHsKICAgICAgICAgICAgICAgIGV4dGVuZDogewogICAg
+ICAgICAgICAgICAgICAgIGNvbG9yczogewogICAgICAgICAgICAgICAgICAg
+ICAgICBicmFuZDogewogICAgICAgICAgICAgICAgICAgICAgICAgICAgREVG
+QVVMVDogJyMwZDM0NzEnLCAvLyBEZWluIE9yaWdpbmFsLUJsYXUKICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgIGxpZ2h0OiAnIzFlNGI5NicsCiAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICBkYXJrOiAnIzA4MjA0YScsCiAgICAg
+ICAgICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICAgICAgICAg
+IGdvbGQ6ICcjYzVhMDU5JyAvLyBBa3plbnRmYXJiZSBmw7xyICJQcmVtaXVt
+Ii1Mb29rCiAgICAgICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAg
+ICAgICBmb250RmFtaWx5OiB7CiAgICAgICAgICAgICAgICAgICAgICAgIHNl
+cmlmOiBbJyJQbGF5ZmFpciBEaXNwbGF5IicsICdzZXJpZiddLAogICAgICAg
+ICAgICAgICAgICAgICAgICBzYW5zOiBbJyJJbnRlciInLCAnc2Fucy1zZXJp
+ZiddLAogICAgICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgIH0K
+ICAgICAgICAgICAgfQogICAgICAgIH0KICAgIDwvc2NyaXB0PgogICAgPHN0
+eWxlPgogICAgICAgIFt4LWNsb2FrXSB7IGRpc3BsYXk6IG5vbmUgIWltcG9y
+dGFudDsgfQogICAgPC9zdHlsZT4KPC9oZWFkPgo8Ym9keSBjbGFzcz0iZm9u
+dC1zYW5zIHRleHQtZ3JheS03MDAgZm9udC1hbnRpYWxpYXNlZCBiZy1yZWQt
+NTAwIiB4LWRhdGE9InsgbW9iaWxlTWVudU9wZW46IGZhbHNlLCBtb2RhbDog
+bnVsbCwgY29va2llQWNjZXB0ZWQ6IGxvY2FsU3RvcmFnZS5nZXRJdGVtKCdj
+b29raWVBY2NlcHRlZCcpID09PSAndHJ1ZScsIHNob3dDb29raWVCYW5uZXI6
+IGxvY2FsU3RvcmFnZS5nZXRJdGVtKCdjb29raWVBY2NlcHRlZCcpICE9PSAn
+dHJ1ZScgfSI+CgogICAgPG5hdiBjbGFzcz0iZml4ZWQgdy1mdWxsIHotNDAg
+Ymctd2hpdGUvOTUgYmFja2Ryb3AtYmx1ci1zbSBzaGFkb3ctc20gYm9yZGVy
+LWIgYm9yZGVyLWdyYXktMTAwIHRyYW5zaXRpb24tYWxsIGR1cmF0aW9uLTMw
+MCI+CiAgICAgICAgPGRpdiBjbGFzcz0ibWF4LXctN3hsIG14LWF1dG8gcHgt
+NCBzbTpweC02IGxnOnB4LTgiPgogICAgICAgICAgICA8ZGl2IGNsYXNzPSJm
+bGV4IGp1c3RpZnktYmV0d2VlbiBpdGVtcy1jZW50ZXIgaC0yMCI+CiAgICAg
+ICAgICAgICAgICA8ZGl2IGNsYXNzPSJmbGV4LXNocmluay0wIGZsZXggaXRl
+bXMtY2VudGVyIj4KICAgICAgICAgICAgICAgICAgICA8YSBocmVmPSIjIiBj
+bGFzcz0iZm9udC1zZXJpZiB0ZXh0LTJ4bCB0ZXh0LWJyYW5kIGZvbnQtYm9s
+ZCB0cmFja2luZy10aWdodCI+CiAgICAgICAgICAgICAgICAgICAgICAgIE1l
+aWtlIEjDtnBmbmVyCiAgICAgICAgICAgICAgICAgICAgICAgIDxzcGFuIGNs
+YXNzPSJibG9jayB0ZXh0LXhzIGZvbnQtc2FucyB0ZXh0LWdvbGQgZm9udC1t
+ZWRpdW0gdXBwZXJjYXNlIHRyYWNraW5nLXdpZGVzdCBtdC0wLjUiPlRyYW5z
+bGF0aW9uIFNlcnZpY2VzPC9zcGFuPgogICAgICAgICAgICAgICAgICAgIDwv
+YT4KICAgICAgICAgICAgICAgIDwvZGl2PgogICAgICAgICAgICAgICAgCiAg
+ICAgICAgICAgICAgICA8ZGl2IGNsYXNzPSJoaWRkZW4gbWQ6ZmxleCBzcGFj
+ZS14LTggaXRlbXMtY2VudGVyIj4KICAgICAgICAgICAgICAgICAgICA8YSBo
+cmVmPSIjZXhwZXJ0aXNlIiBjbGFzcz0idGV4dC1zbSBmb250LW1lZGl1bSB0
+ZXh0LWdyYXktNjAwIGhvdmVyOnRleHQtYnJhbmQgdHJhbnNpdGlvbi1jb2xv
+cnMiPkZhY2hnZWJpZXRlPC9hPgogICAgICAgICAgICAgICAgICAgIDxhIGhy
+ZWY9IiNyZWZlcmVuY2VzIiBjbGFzcz0idGV4dC1zbSBmb250LW1lZGl1bSB0
+ZXh0LWdyYXktNjAwIGhvdmVyOnRleHQtYnJhbmQgdHJhbnNpdGlvbi1jb2xv
+cnMiPlJlZmVyZW56ZW48L2E+CiAgICAgICAgICAgICAgICAgICAgPGEgaHJl
+Zj0iI2Fib3V0IiBjbGFzcz0idGV4dC1zbSBmb250LW1lZGl1bSB0ZXh0LWdy
+YXktNjAwIGhvdmVyOnRleHQtYnJhbmQgdHJhbnNpdGlvbi1jb2xvcnMiPlBy
+b2ZpbDwvYT4KICAgICAgICAgICAgICAgICAgICA8YSBocmVmPSIjY29udGFj
+dCIgY2xhc3M9ImJnLWJyYW5kIHRleHQtd2hpdGUgcHgtNSBweS0yLjUgcm91
+bmRlZCB0ZXh0LXNtIGZvbnQtbWVkaXVtIGhvdmVyOmJnLWJyYW5kLWRhcmsg
+dHJhbnNpdGlvbi1jb2xvcnMgc2hhZG93LWxnIHNoYWRvdy1icmFuZC8yMCI+
+CiAgICAgICAgICAgICAgICAgICAgICAgIEtvbnRha3QgYXVmbmVobWVuCiAg
+ICAgICAgICAgICAgICAgICAgPC9hPgogICAgICAgICAgICAgICAgICAgIDxk
+aXYgY2xhc3M9ImJvcmRlci1sIHBsLTQgbWwtNCBmbGV4IHNwYWNlLXgtMiB0
+ZXh0LXhzIGZvbnQtYm9sZCB0ZXh0LWdyYXktNDAwIj4KICAgICAgICAgICAg
+ICAgICAgICAgICAgPHNwYW4gY2xhc3M9InRleHQtYnJhbmQgY3Vyc29yLWRl
+ZmF1bHQiPkRFPC9zcGFuPgogICAgICAgICAgICAgICAgICAgICAgICA8YSBo
+cmVmPSIjIiBjbGFzcz0iaG92ZXI6dGV4dC1icmFuZCB0cmFuc2l0aW9uLWNv
+bG9ycyI+RU48L2E+CiAgICAgICAgICAgICAgICAgICAgICAgIDxhIGhyZWY9
+IiMiIGNsYXNzPSJob3Zlcjp0ZXh0LWJyYW5kIHRyYW5zaXRpb24tY29sb3Jz
+Ij5JVDwvYT4KICAgICAgICAgICAgICAgICAgICA8L2Rpdj4KICAgICAgICAg
+ICAgICAgIDwvZGl2PgoKICAgICAgICAgICAgICAgIDxkaXYgY2xhc3M9Im1k
+OmhpZGRlbiBmbGV4IGl0ZW1zLWNlbnRlciI+CiAgICAgICAgICAgICAgICAg
+ICAgPGJ1dHRvbiBAY2xpY2s9Im1vYmlsZU1lbnVPcGVuID0gIW1vYmlsZU1l
+bnVPcGVuIiBjbGFzcz0idGV4dC1ncmF5LTUwMCBob3Zlcjp0ZXh0LWJyYW5k
+IGZvY3VzOm91dGxpbmUtbm9uZSI+CiAgICAgICAgICAgICAgICAgICAgICAg
+IDxzdmcgY2xhc3M9ImgtNiB3LTYiIGZpbGw9Im5vbmUiIHZpZXdCb3g9IjAg
+MCAyNCAyNCIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiPgogICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgPHBhdGggc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBz
+dHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjIiIGQ9Ik00
+IDZoMTZNNCAxMmgxNk00IDE4aDE2IiAvPgogICAgICAgICAgICAgICAgICAg
+ICAgICA8L3N2Zz4KICAgICAgICAgICAgICAgICAgICA8L2J1dHRvbj4KICAg
+ICAgICAgICAgICAgIDwvZGl2PgogICAgICAgICAgICA8L2Rpdj4KICAgICAg
+ICA8L2Rpdj4KCiAgICAgICAgPGRpdiB4LXNob3c9Im1vYmlsZU1lbnVPcGVu
+IiBAY2xpY2suYXdheT0ibW9iaWxlTWVudU9wZW4gPSBmYWxzZSIgeC10cmFu
+c2l0aW9uIGNsYXNzPSJtZDpoaWRkZW4gYmctd2hpdGUgYm9yZGVyLXQgYm9y
+ZGVyLWdyYXktMTAwIGFic29sdXRlIHctZnVsbCB6LTUwIj4KICAgICAgICAg
+ICAgPGRpdiBjbGFzcz0icHgtMiBwdC0yIHBiLTMgc3BhY2UteS0xIHNtOnB4
+LTMiPgogICAgICAgICAgICAgICAgPGEgaHJlZj0iI2V4cGVydGlzZSIgQGNs
+aWNrPSJtb2JpbGVNZW51T3BlbiA9IGZhbHNlIiBjbGFzcz0iYmxvY2sgcHgt
+MyBweS0yIHRleHQtYmFzZSBmb250LW1lZGl1bSB0ZXh0LWdyYXktNzAwIGhv
+dmVyOnRleHQtYnJhbmQgaG92ZXI6YmctZ3JheS01MCI+RmFjaGdlYmlldGU8
+L2E+CiAgICAgICAgICAgICAgICA8YSBocmVmPSIjcmVmZXJlbmNlcyIgQGNs
+aWNrPSJtb2JpbGVNZW51T3BlbiA9IGZhbHNlIiBjbGFzcz0iYmxvY2sgcHgt
+MyBweS0yIHRleHQtYmFzZSBmb250LW1lZGl1bSB0ZXh0LWdyYXktNzAwIGhv
+dmVyOnRleHQtYnJhbmQgaG92ZXI6YmctZ3JheS01MCI+UmVmZXJlbnplbjwv
+YT4KICAgICAgICAgICAgICAgIDxhIGhyZWY9IiNhYm91dCIgQGNsaWNrPSJt
+b2JpbGVNZW51T3BlbiA9IGZhbHNlIiBjbGFzcz0iYmxvY2sgcHgtMyBweS0y
+IHRleHQtYmFzZSBmb250LW1lZGl1bSB0ZXh0LWdyYXktNzAwIGhvdmVyOnRl
+eHQtYnJhbmQgaG92ZXI6YmctZ3JheS01MCI+UHJvZmlsPC9hPgogICAgICAg
+ICAgICAgICAgPGEgaHJlZj0iI2NvbnRhY3QiIEBjbGljaz0ibW9iaWxlTWVu
+dU9wZW4gPSBmYWxzZSIgY2xhc3M9ImJsb2NrIHB4LTMgcHktMiB0ZXh0LWJh
+c2UgZm9udC1tZWRpdW0gdGV4dC1icmFuZCBmb250LWJvbGQgaG92ZXI6Ymct
+Z3JheS01MCI+S29udGFrdDwvYT4KICAgICAgICAgICAgPC9kaXY+CiAgICAg
+ICAgPC9kaXY+CiAgICA8L25hdj4KCiAgICA8c2VjdGlvbiBjbGFzcz0icmVs
+YXRpdmUgYmctYnJhbmQgcHQtMzIgcGItMjAgbGc6cHQtNDggbGc6cGItMzIg
+b3ZlcmZsb3ctaGlkZGVuIj4KICAgICAgICA8ZGl2IGNsYXNzPSJhYnNvbHV0
+ZSBpbnNldC0wIG9wYWNpdHktMTAiIHN0eWxlPSJiYWNrZ3JvdW5kLWltYWdl
+OiB1cmwoJ2h0dHBzOi8vd3d3LnRyYW5zcGFyZW50dGV4dHVyZXMuY29tL3Bh
+dHRlcm5zL2N1YmVzLnBuZycpOyI+PC9kaXY+CiAgICAgICAgCiAgICAgICAg
+PGRpdiBjbGFzcz0icmVsYXRpdmUgbWF4LXctN3hsIG14LWF1dG8gcHgtNCBz
+bTpweC02IGxnOnB4LTggdGV4dC1jZW50ZXIgbGc6dGV4dC1sZWZ0IGZsZXgg
+ZmxleC1jb2wgbGc6ZmxleC1yb3cgaXRlbXMtY2VudGVyIj4KICAgICAgICAg
+ICAgPGRpdiBjbGFzcz0ibGc6dy0xLzIgbGc6cHItMTIiPgogICAgICAgICAg
+ICAgICAgPHNwYW4gY2xhc3M9ImlubGluZS1ibG9jayBweS0xIHB4LTMgcm91
+bmRlZCBiZy1ibHVlLTkwMC81MCBib3JkZXIgYm9yZGVyLWJsdWUtNzAwIHRl
+eHQtYmx1ZS0xMDAgdGV4dC14cyBmb250LWJvbGQgdHJhY2tpbmctd2lkZXN0
+IHVwcGVyY2FzZSBtYi02Ij4KICAgICAgICAgICAgICAgICAgICBHZXJpY2h0
+bGljaCBlcm3DpGNodGlndAogICAgICAgICAgICAgICAgPC9zcGFuPgogICAg
+ICAgICAgICAgICAgPGgxIGNsYXNzPSJ0ZXh0LTR4bCBsZzp0ZXh0LTZ4bCBm
+b250LXNlcmlmIGZvbnQtYm9sZCB0ZXh0LXdoaXRlIGxlYWRpbmctdGlnaHQg
+bWItNiI+CiAgICAgICAgICAgICAgICAgICAgTWVpa2UgSMO2cGZuZXIg4oCT
+IDxzcGFuIGNsYXNzPSJ0ZXh0LWdvbGQgaXRhbGljIj5GYWNow7xiZXJzZXR6
+dW5nZW4gbWl0IEhlcno8L3NwYW4+CiAgICAgICAgICAgICAgICA8L2gxPgog
+ICAgICAgICAgICAgICAgPHAgY2xhc3M9InRleHQtbGcgdGV4dC1ibHVlLTEw
+MCBtYi04IG1heC13LTJ4bCBsZWFkaW5nLXJlbGF4ZWQiPgogICAgICAgICAg
+ICAgICAgICAgIERpcGxvbS3DnGJlcnNldHplcmluIGbDvHIgRW5nbGlzY2gg
+dW5kIEl0YWxpZW5pc2NoLiA8YnI+CiAgICAgICAgICAgICAgICAgICAgU3Bl
+emlhbGlzaWVydCBhdWYgUmVjaHQsIFBvbGl0aWssIE1hcmtldGluZyB1bmQg
+V2lzc2Vuc2NoYWZ0LgogICAgICAgICAgICAgICAgICAgIEV1cm9wZWFuIE1B
+IGluIExpbmd1aXN0aWNzLgogICAgICAgICAgICAgICAgPC9wPgogICAgICAg
+ICAgICAgICAgPGRpdiBjbGFzcz0iZmxleCBmbGV4LWNvbCBzbTpmbGV4LXJv
+dyBnYXAtNCBqdXN0aWZ5LWNlbnRlciBsZzpqdXN0aWZ5LXN0YXJ0Ij4KICAg
+ICAgICAgICAgICAgICAgICA8YSBocmVmPSIjY29udGFjdCIgY2xhc3M9ImJn
+LWdvbGQgdGV4dC13aGl0ZSBweC04IHB5LTMuNSByb3VuZGVkIGZvbnQtbWVk
+aXVtIGhvdmVyOmJnLXllbGxvdy02MDAgdHJhbnNpdGlvbi1jb2xvcnMgc2hh
+ZG93LWxnIj4KICAgICAgICAgICAgICAgICAgICAgICAgQW5nZWJvdCBhbmZv
+cmRlcm4KICAgICAgICAgICAgICAgICAgICA8L2E+CiAgICAgICAgICAgICAg
+ICAgICAgPGEgaHJlZj0iI2V4cGVydGlzZSIgY2xhc3M9ImJvcmRlciBib3Jk
+ZXItd2hpdGUvMzAgdGV4dC13aGl0ZSBweC04IHB5LTMuNSByb3VuZGVkIGZv
+bnQtbWVkaXVtIGhvdmVyOmJnLXdoaXRlLzEwIHRyYW5zaXRpb24tY29sb3Jz
+Ij4KICAgICAgICAgICAgICAgICAgICAgICAgTGVpc3R1bmdlbiBhbnNlaGVu
+CiAgICAgICAgICAgICAgICAgICAgPC9hPgogICAgICAgICAgICAgICAgPC9k
+aXY+CiAgICAgICAgICAgIDwvZGl2PgogICAgICAgICAgICA8ZGl2IGNsYXNz
+PSJsZzp3LTEvMiBtdC0xMiBsZzptdC0wIHJlbGF0aXZlIj4KICAgICAgICAg
+ICAgICAgIDxkaXYgY2xhc3M9InJlbGF0aXZlIHJvdW5kZWQtbGcgb3ZlcmZs
+b3ctaGlkZGVuIHNoYWRvdy0yeGwgYm9yZGVyLTQgYm9yZGVyLXdoaXRlLzEw
+Ij4KICAgICAgICAgICAgICAgICAgICA8aW1nIHNyYz0iaHR0cHM6Ly9pbWFn
+ZXMudW5zcGxhc2guY29tL3Bob3RvLTE0NTAxMDE0OTkxNjMtYzg4NDhjNjZj
+YTg1P2l4bGliPXJiLTQuMC4zJmF1dG89Zm9ybWF0JmZpdD1jcm9wJnc9MTIw
+MCZxPTgwIiBhbHQ9IkxlZ2FsIERvY3VtZW50cyIgY2xhc3M9InctZnVsbCBo
+LWF1dG8gb2JqZWN0LWNvdmVyIG9wYWNpdHktOTAiPgogICAgICAgICAgICAg
+ICAgICAgIDxkaXYgY2xhc3M9ImFic29sdXRlIGluc2V0LTAgYmctYnJhbmQv
+MjAgbWl4LWJsZW5kLW11bHRpcGx5Ij48L2Rpdj4KICAgICAgICAgICAgICAg
+IDwvZGl2PgogICAgICAgICAgICA8L2Rpdj4KICAgICAgICA8L2Rpdj4KICAg
+IDwvc2VjdGlvbj4KCiAgICA8ZGl2IGNsYXNzPSJiZy1icmFuZC1kYXJrIHB5
+LTggYm9yZGVyLXQgYm9yZGVyLXdoaXRlLzEwIj4KICAgICAgICA8ZGl2IGNs
+YXNzPSJtYXgtdy03eGwgbXgtYXV0byBweC00IHNtOnB4LTYgbGc6cHgtOCBm
+bGV4IGZsZXgtd3JhcCBqdXN0aWZ5LWNlbnRlciBsZzpqdXN0aWZ5LWJldHdl
+ZW4gZ2FwLTggdGV4dC1ibHVlLTIwMCB0ZXh0LXNtIGZvbnQtbWVkaXVtIHVw
+cGVyY2FzZSB0cmFja2luZy13aWRlciB0ZXh0LWNlbnRlciI+CiAgICAgICAg
+ICAgIDxkaXYgY2xhc3M9ImZsZXggaXRlbXMtY2VudGVyIGdhcC0zIj4KICAg
+ICAgICAgICAgICAgIDxzdmcgY2xhc3M9InctNSBoLTUgdGV4dC1nb2xkIiBm
+aWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgdmlld0JveD0iMCAw
+IDI0IDI0Ij48cGF0aCBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1s
+aW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iMiIgZD0iTTkgMTJsMiAy
+IDQtNG02IDJhOSA5IDAgMTEtMTggMCA5IDkgMCAwMTE4IDB6Ij48L3BhdGg+
+PC9zdmc+CiAgICAgICAgICAgICAgICBNdXR0ZXJzcHJhY2hsaWNoZXMgTml2
+ZWF1CiAgICAgICAgICAgIDwvZGl2PgogICAgICAgICAgICA8ZGl2IGNsYXNz
+PSJmbGV4IGl0ZW1zLWNlbnRlciBnYXAtMyI+CiAgICAgICAgICAgICAgICA8
+c3ZnIGNsYXNzPSJ3LTUgaC01IHRleHQtZ29sZCIgZmlsbD0ibm9uZSIgc3Ry
+b2tlPSJjdXJyZW50Q29sb3IiIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGgg
+c3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5k
+IiBzdHJva2Utd2lkdGg9IjIiIGQ9Ik0xMiA4djRsMyAzbTYtM2E5IDkgMCAx
+MS0xOCAwIDkgOSAwIDAxMTggMHoiPjwvcGF0aD48L3N2Zz4KICAgICAgICAg
+ICAgICAgIMOcYmVyIDI1IEphaHJlIEVyZmFocnVuZwogICAgICAgICAgICA8
+L2Rpdj4KICAgICAgICAgICAgPGRpdiBjbGFzcz0iZmxleCBpdGVtcy1jZW50
+ZXIgZ2FwLTMiPgogICAgICAgICAgICAgICAgPHN2ZyBjbGFzcz0idy01IGgt
+NSB0ZXh0LWdvbGQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iY3VycmVudENvbG9y
+IiB2aWV3Qm94PSIwIDAgMjQgMjQiPjxwYXRoIHN0cm9rZS1saW5lY2FwPSJy
+b3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIy
+IiBkPSJNMTkgMjFWNWEyIDIgMCAwMC0yLTJIN2EyIDIgMCAwMC0yIDJ2MTZt
+MTQgMGgybS0yIDBoLTVtLTkgMEgzbTIgMGg1TTkgN2gxbS0xIDRoMW00LTRo
+MW0tMSA0aDFtLTUgMTB2LTVhMSAxIDAgMDExLTFoMmExIDEgMCAwMTEgMXY1
+bS00IDBoNCI+PC9wYXRoPjwvc3ZnPgogICAgICAgICAgICAgICAgRkFTSyBH
+ZXJtZXJzaGVpbSBBYnNvbHZlbnRpbgogICAgICAgICAgICA8L2Rpdj4KICAg
+ICAgICA8L2Rpdj4KICAgIDwvZGl2PgoKICAgIDxzZWN0aW9uIGlkPSJleHBl
+cnRpc2UiIGNsYXNzPSJweS0yNCBiZy13aGl0ZSI+CiAgICAgICAgPGRpdiBj
+bGFzcz0ibWF4LXctN3hsIG14LWF1dG8gcHgtNCBzbTpweC02IGxnOnB4LTgi
+PgogICAgICAgICAgICA8ZGl2IGNsYXNzPSJ0ZXh0LWNlbnRlciBtYXgtdy0z
+eGwgbXgtYXV0byBtYi0xNiI+CiAgICAgICAgICAgICAgICA8aDIgY2xhc3M9
+InRleHQtM3hsIG1kOnRleHQtNHhsIGZvbnQtc2VyaWYgZm9udC1ib2xkIHRl
+eHQtYnJhbmQgbWItNCI+RmFjaGdlYmlldGUgJiBFeHBlcnRpc2U8L2gyPgog
+ICAgICAgICAgICAgICAgPGRpdiBjbGFzcz0idy0xNiBoLTEgYmctZ29sZCBt
+eC1hdXRvIG1iLTYiPjwvZGl2PgogICAgICAgICAgICAgICAgPHAgY2xhc3M9
+InRleHQtZ3JheS02MDAiPgogICAgICAgICAgICAgICAgICAgIEhvY2hzcGV6
+aWFsaXNpZXJ0ZSDDnGJlcnNldHp1bmdlbiBlcmZvcmRlcm4gbWVociBhbHMg
+bnVyIFNwcmFjaGtlbm50bmlzc2UuIFNpZSBlcmZvcmRlcm4gdGllZmVzIEZh
+Y2h3aXNzZW4uCiAgICAgICAgICAgICAgICA8L3A+CiAgICAgICAgICAgIDwv
+ZGl2PgoKICAgICAgICAgICAgPGRpdiBjbGFzcz0iZ3JpZCBtZDpncmlkLWNv
+bHMtMyBnYXAtOCI+CiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzPSJncm91
+cCBiZy1ncmF5LTUwIHAtOCByb3VuZGVkLWxnIGhvdmVyOmJnLXdoaXRlIGhv
+dmVyOnNoYWRvdy14bCB0cmFuc2l0aW9uLWFsbCBkdXJhdGlvbi0zMDAgYm9y
+ZGVyIGJvcmRlci1ncmF5LTEwMCI+CiAgICAgICAgICAgICAgICAgICAgPGRp
+diBjbGFzcz0idy0xMiBoLTEyIGJnLWJyYW5kLzEwIHJvdW5kZWQtZnVsbCBm
+bGV4IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWNlbnRlciBtYi02IGdyb3VwLWhv
+dmVyOmJnLWJyYW5kIGdyb3VwLWhvdmVyOnRleHQtd2hpdGUgdHJhbnNpdGlv
+bi1jb2xvcnMgdGV4dC1icmFuZCI+CiAgICAgICAgICAgICAgICAgICAgICAg
+IDxzdmcgY2xhc3M9InctNiBoLTYiIGZpbGw9Im5vbmUiIHN0cm9rZT0iY3Vy
+cmVudENvbG9yIiB2aWV3Qm94PSIwIDAgMjQgMjQiPjxwYXRoIHN0cm9rZS1s
+aW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tl
+LXdpZHRoPSIyIiBkPSJNMyA2bDMgMW0wIDBsLTMgOWE1LjAwMiA1LjAwMiAw
+IDAwNi4wMDEgME02IDdsMyA5TTYgN2w2LTJtNiAybDMtMW0tMyAxbC0zIDlh
+NS4wMDIgNS4wMDIgMCAwMDYuMDAxIDBNMTggN2wzIDltLTMtOWwtNi0ybTAt
+MnYybTAgMTZWNW0wIDE2SDltMyAwaDMiPjwvcGF0aD48L3N2Zz4KICAgICAg
+ICAgICAgICAgICAgICA8L2Rpdj4KICAgICAgICAgICAgICAgICAgICA8aDMg
+Y2xhc3M9InRleHQteGwgZm9udC1zZXJpZiBmb250LWJvbGQgdGV4dC1ncmF5
+LTkwMCBtYi0zIj5SZWNodCAmIFBvbGl0aWs8L2gzPgogICAgICAgICAgICAg
+ICAgICAgIDxwIGNsYXNzPSJ0ZXh0LWdyYXktNjAwIHRleHQtc20gbGVhZGlu
+Zy1yZWxheGVkIG1iLTQiPgogICAgICAgICAgICAgICAgICAgICAgICBWZXJ0
+csOkZ2UsIFVya3VuZGVuLCBHZXJpY2h0c3VydGVpbGUsIFNhY2h2ZXJzdMOk
+bmRpZ2VuZ3V0YWNodGVuIHVuZCBHZXNldHplc2VudHfDvHJmZS4KICAgICAg
+ICAgICAgICAgICAgICAgICAgPGJyPjxicj4KICAgICAgICAgICAgICAgICAg
+ICAgICAgPHNwYW4gY2xhc3M9InRleHQtYnJhbmQgZm9udC1zZW1pYm9sZCB0
+ZXh0LXhzIHVwcGVyY2FzZSB0cmFja2luZy13aWRlIj5JbmtsdXNpdmUgQmVn
+bGF1YmlndW5nPC9zcGFuPgogICAgICAgICAgICAgICAgICAgIDwvcD4KICAg
+ICAgICAgICAgICAgIDwvZGl2PgoKICAgICAgICAgICAgICAgIDxkaXYgY2xh
+c3M9Imdyb3VwIGJnLWdyYXktNTAgcC04IHJvdW5kZWQtbGcgaG92ZXI6Ymct
+d2hpdGUgaG92ZXI6c2hhZG93LXhsIHRyYW5zaXRpb24tYWxsIGR1cmF0aW9u
+LTMwMCBib3JkZXIgYm9yZGVyLWdyYXktMTAwIj4KICAgICAgICAgICAgICAg
+ICAgICA8ZGl2IGNsYXNzPSJ3LTEyIGgtMTIgYmctYnJhbmQvMTAgcm91bmRl
+ZC1mdWxsIGZsZXggaXRlbXMtY2VudGVyIGp1c3RpZnktY2VudGVyIG1iLTYg
+Z3JvdXAtaG92ZXI6YmctYnJhbmQgZ3JvdXAtaG92ZXI6dGV4dC13aGl0ZSB0
+cmFuc2l0aW9uLWNvbG9ycyB0ZXh0LWJyYW5kIj4KICAgICAgICAgICAgICAg
+ICAgICAgICAgPHN2ZyBjbGFzcz0idy02IGgtNiIgZmlsbD0ibm9uZSIgc3Ry
+b2tlPSJjdXJyZW50Q29sb3IiIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGgg
+c3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5k
+IiBzdHJva2Utd2lkdGg9IjIiIGQ9Ik0xOSAyMVY1YTIgMiAwIDAwLTItMkg3
+YTIgMiAwIDAwLTIgMnYxNm0xNCAwaDJtLTIgMGgtNW0tOSAwSDNtMiAwaDVN
+OSA3aDFtLTEgNGgxbTQtNGgxbS0xIDRoMW0tNSAxMHYtNWExIDEgMCAwMTEt
+MWgyYTEgMSAwIDAxMSAxdjVtLTQgMGg0Ij48L3BhdGg+PC9zdmc+CiAgICAg
+ICAgICAgICAgICAgICAgPC9kaXY+CiAgICAgICAgICAgICAgICAgICAgPGgz
+IGNsYXNzPSJ0ZXh0LXhsIGZvbnQtc2VyaWYgZm9udC1ib2xkIHRleHQtZ3Jh
+eS05MDAgbWItMyI+TWFya2V0aW5nICYgS3VsdHVyPC9oMz4KICAgICAgICAg
+ICAgICAgICAgICA8cCBjbGFzcz0idGV4dC1ncmF5LTYwMCB0ZXh0LXNtIGxl
+YWRpbmctcmVsYXhlZCBtYi00Ij4KICAgICAgICAgICAgICAgICAgICAgICAg
+V2Vic2l0ZXMsIEltYWdlYnJvc2Now7xyZW4sIERva3VtZW50YXJmaWxtZSwg
+QXJjaGl0ZWt0dXIgdW5kIEt1bnN0YXVzc3RlbGx1bmdlbi4gQW5wYXNzdW5n
+IGFuIGRpZSBaaWVsa3VsdHVyLgogICAgICAgICAgICAgICAgICAgIDwvcD4K
+ICAgICAgICAgICAgICAgIDwvZGl2PgoKICAgICAgICAgICAgICAgIDxkaXYg
+Y2xhc3M9Imdyb3VwIGJnLWdyYXktNTAgcC04IHJvdW5kZWQtbGcgaG92ZXI6
+Ymctd2hpdGUgaG92ZXI6c2hhZG93LXhsIHRyYW5zaXRpb24tYWxsIGR1cmF0
+aW9uLTMwMCBib3JkZXIgYm9yZGVyLWdyYXktMTAwIj4KICAgICAgICAgICAg
+ICAgICAgICA8ZGl2IGNsYXNzPSJ3LTEyIGgtMTIgYmctYnJhbmQvMTAgcm91
+bmRlZC1mdWxsIGZsZXggaXRlbXMtY2VudGVyIGp1c3RpZnktY2VudGVyIG1i
+LTYgZ3JvdXAtaG92ZXI6YmctYnJhbmQgZ3JvdXAtaG92ZXI6dGV4dC13aGl0
+ZSB0cmFuc2l0aW9uLWNvbG9ycyB0ZXh0LWJyYW5kIj4KICAgICAgICAgICAg
+ICAgICAgICAgICAgPHN2ZyBjbGFzcz0idy02IGgtNiIgZmlsbD0ibm9uZSIg
+c3Ryb2tlPSJjdXJyZW50Q29sb3IiIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBh
+dGggc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJv
+dW5kIiBzdHJva2Utd2lkdGg9IjIiIGQ9Ik0xOS40MjggMTUuNDI4YTIgMiAw
+IDAwLTEuMDIyLS41NDdsLTIuMzg0LS40NzdhNiA2IDAgMDAtMy44Ni41MTds
+LS4zMTguMTU4YTYgNiAwIDAxLTMuODYuNTE3TDYuMDUgMTUuMjFhMiAyIDAg
+MDAtMS44MDYuNTQ3TTggNGg4bC0xIDF2NS4xNzJhMiAyIDAgMDAuNTg2IDEu
+NDE0bDUgNWMxLjI2IDEuMjYuMzY3IDMuNDE0LTEuNDE1IDMuNDE0SDQuODI4
+Yy0xLjc4MiAwLTIuNjc0LTIuMTU0LTEuNDE0LTMuNDE0bDUtNUEyIDIgMCAw
+MDkgMTAuMTcyVjVMOCA0eiI+PC9wYXRoPjwvc3ZnPgogICAgICAgICAgICAg
+ICAgICAgIDwvZGl2PgogICAgICAgICAgICAgICAgICAgIDxoMyBjbGFzcz0i
+dGV4dC14bCBmb250LXNlcmlmIGZvbnQtYm9sZCB0ZXh0LWdyYXktOTAwIG1i
+LTMiPk1lZGl6aW4gJiBXaXNzZW5zY2hhZnQ8L2gzPgogICAgICAgICAgICAg
+ICAgICAgIDxwIGNsYXNzPSJ0ZXh0LWdyYXktNjAwIHRleHQtc20gbGVhZGlu
+Zy1yZWxheGVkIG1iLTQiPgogICAgICAgICAgICAgICAgICAgICAgICBLbGlu
+aXNjaGUgU3R1ZGllbiwgUGF0aWVudGVuaGFuZGLDvGNoZXIsIHdpc3NlbnNj
+aGFmdGxpY2hlIEFydGlrZWwgdW5kIG5ldXJvbG9naXNjaGUgRm9yc2NodW5n
+LgogICAgICAgICAgICAgICAgICAgIDwvcD4KICAgICAgICAgICAgICAgIDwv
+ZGl2PgogICAgICAgICAgICA8L2Rpdj4KICAgICAgICA8L2Rpdj4KICAgIDwv
+c2VjdGlvbj4KCiAgICA8c2VjdGlvbiBpZD0icmVmZXJlbmNlcyIgY2xhc3M9
+InB5LTI0IGJnLWdyYXktNTAgYm9yZGVyLXQgYm9yZGVyLWdyYXktMjAwIiB4
+LWRhdGE9InsgYWN0aXZlVGFiOiAncHJvamVjdHMnIH0iPgogICAgICAgIDxk
+aXYgY2xhc3M9Im1heC13LTd4bCBteC1hdXRvIHB4LTQgc206cHgtNiBsZzpw
+eC04Ij4KICAgICAgICAgICAgPGRpdiBjbGFzcz0idGV4dC1jZW50ZXIgbWF4
+LXctM3hsIG14LWF1dG8gbWItMTYiPgogICAgICAgICAgICAgICAgPGgyIGNs
+YXNzPSJ0ZXh0LTN4bCBtZDp0ZXh0LTR4bCBmb250LXNlcmlmIGZvbnQtYm9s
+ZCB0ZXh0LWJyYW5kIG1iLTQiPlJlZmVyZW56ZW4gJiBQcm9qZWt0ZTwvaDI+
+CiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzPSJ3LTE2IGgtMSBiZy1nb2xk
+IG14LWF1dG8gbWItNiI+PC9kaXY+CiAgICAgICAgICAgICAgICA8cCBjbGFz
+cz0idGV4dC1ncmF5LTYwMCI+CiAgICAgICAgICAgICAgICAgICAgRWluZSBB
+dXN3YWhsIG1laW5lciBsYW5nasOkaHJpZ2VuIFp1c2FtbWVuYXJiZWl0IG1p
+dCBEaXJla3RrdW5kZW4sIEFnZW50dXJlbiB1bmQgSW5zdGl0dXRpb25lbi4K
+ICAgICAgICAgICAgICAgIDwvcD4KICAgICAgICAgICAgPC9kaXY+CgogICAg
+ICAgICAgICA8ZGl2IGNsYXNzPSJmbGV4IGZsZXgtd3JhcCBqdXN0aWZ5LWNl
+bnRlciBnYXAtMiBtYi0xMiI+CiAgICAgICAgICAgICAgICA8YnV0dG9uIEBj
+bGljaz0iYWN0aXZlVGFiID0gJ3Byb2plY3RzJyIgOmNsYXNzPSJhY3RpdmVU
+YWIgPT09ICdwcm9qZWN0cycgPyAnYmctYnJhbmQgdGV4dC13aGl0ZSBib3Jk
+ZXItYnJhbmQnIDogJ3RleHQtZ3JheS01MDAgYm9yZGVyLWdyYXktMjAwIGhv
+dmVyOnRleHQtYnJhbmQnIiBjbGFzcz0icHgtNiBweS0zIHRleHQtc20gZm9u
+dC1ib2xkIHVwcGVyY2FzZSB0cmFja2luZy13aWRlciByb3VuZGVkIGJvcmRl
+ciB0cmFuc2l0aW9uLWNvbG9ycyI+CiAgICAgICAgICAgICAgICAgICAgR3LD
+tsOfZXJlIFByb2pla3RlCiAgICAgICAgICAgICAgICA8L2J1dHRvbj4KICAg
+ICAgICAgICAgICAgIDxidXR0b24gQGNsaWNrPSJhY3RpdmVUYWIgPSAnY2xp
+ZW50cyciIDpjbGFzcz0iYWN0aXZlVGFiID09PSAnY2xpZW50cycgPyAnYmct
+YnJhbmQgdGV4dC13aGl0ZSBib3JkZXItYnJhbmQnIDogJ3RleHQtZ3JheS01
+MDAgYm9yZGVyLWdyYXktMjAwIGhvdmVyOnRleHQtYnJhbmQnIiBjbGFzcz0i
+cHgtNiBweS0zIHRleHQtc20gZm9udC1ib2xkIHVwcGVyY2FzZSB0cmFja2lu
+Zy13aWRlciByb3VuZGVkIGJvcmRlciB0cmFuc2l0aW9uLWNvbG9ycyI+CiAg
+ICAgICAgICAgICAgICAgICAgRGlyZWt0a3VuZGVuCiAgICAgICAgICAgICAg
+ICA8L2J1dHRvbj4KICAgICAgICAgICAgICAgIDxidXR0b24gQGNsaWNrPSJh
+Y3RpdmVUYWIgPSAnYWdlbmNpZXMnIiA6Y2xhc3M9ImFjdGl2ZVRhYiA9PT0g
+J2FnZW5jaWVzJyA/ICdiZy1icmFuZCB0ZXh0LXdoaXRlIGJvcmRlci1icmFu
+ZCcgOiAndGV4dC1ncmF5LTUwMCBib3JkZXItZ3JheS0yMDAgaG92ZXI6dGV4
+dC1icmFuZCciIGNsYXNzPSJweC02IHB5LTMgdGV4dC1zbSBmb250LWJvbGQg
+dXBwZXJjYXNlIHRyYWNraW5nLXdpZGVyIHJvdW5kZWQgYm9yZGVyIHRyYW5z
+aXRpb24tY29sb3JzIj4KICAgICAgICAgICAgICAgICAgICBBZ2VudHVyZW4K
+ICAgICAgICAgICAgICAgIDwvYnV0dG9uPgogICAgICAgICAgICA8L2Rpdj4K
+CiAgICAgICAgICAgIDxkaXYgeC1zaG93PSJhY3RpdmVUYWIgPT09ICdwcm9q
+ZWN0cyciIHgtdHJhbnNpdGlvbi5vcGFjaXR5PgogICAgICAgICAgICAgICAg
+PGRpdiBjbGFzcz0iYmctd2hpdGUgcC04IHJvdW5kZWQtbGcgYm9yZGVyLWwt
+NCBib3JkZXItZ29sZCBzaGFkb3ctc20iPgogICAgICAgICAgICAgICAgICAg
+IDxoMyBjbGFzcz0idGV4dC14bCBmb250LXNlcmlmIGZvbnQtYm9sZCB0ZXh0
+LWdyYXktOTAwIG1iLTYiPkF1c2dld8OkaGx0ZSBHcm/Dn3Byb2pla3RlPC9o
+Mz4KICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzPSJncmlkIG1kOmdy
+aWQtY29scy0yIGdhcC02IHRleHQtc20gdGV4dC1ncmF5LTcwMCI+CiAgICAg
+ICAgICAgICAgICAgICAgICAgIDx1bCBjbGFzcz0ic3BhY2UteS0zIGxpc3Qt
+ZGlzYyBsaXN0LWluc2lkZSBtYXJrZXI6dGV4dC1nb2xkIj4KICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgIDxsaT48c3Ryb25nPkV4dHJhIG5ldWVzIFBy
+b2pla3Q8L3N0cm9uZz48L2xpPgogICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgPGxpPjxzdHJvbmc+RXhwbyAyMDAwIEhhbm5vdmVyOjwvc3Ryb25nPiBP
+ZmZpemllbGxlciBGw7xocmVyLCBJbWFnZWJyb3NjaMO8cmVuLCBQcmVzc2Vt
+aXR0ZWlsdW5nZW4uPC9saT4KICAgICAgICAgICAgICAgICAgICAgICAgICAg
+IDxsaT48c3Ryb25nPkJhdWhhdXMtQXJjaGl2IEJlcmxpbjo8L3N0cm9uZz4g
+QXVzc3RlbGx1bmdza2F0YWxvZ2UsIEF1ZGlvZ3VpZGVzLjwvbGk+CiAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICA8bGk+PHN0cm9uZz5IdW1ib2xkdC1V
+bml2ZXJzaXTDpHQgQmVybGluOjwvc3Ryb25nPiBXZWJzZWl0ZW4sIHdpc3Nl
+bnNjaGFmdGxpY2hlIFB1Ymxpa2F0aW9uZW4uPC9saT4KICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgIDxsaT48c3Ryb25nPlNvbnkgRXVyb3BlOjwvc3Ry
+b25nPiBNYXJrZXRpbmdtYXRlcmlhbGllbiwgaW50ZXJuZSBLb21tdW5pa2F0
+aW9uLjwvbGk+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8bGk+PHN0
+cm9uZz5TTkNGIFBhcmlzOjwvc3Ryb25nPiBUZWNobmlzY2hlIERva3VtZW50
+YXRpb25lbiwgdG91cmlzdGlzY2hlIEluZm9ybWF0aW9uZW4uPC9saT4KICAg
+ICAgICAgICAgICAgICAgICAgICAgPC91bD4KICAgICAgICAgICAgICAgICAg
+ICAgICAgPHVsIGNsYXNzPSJzcGFjZS15LTMgbGlzdC1kaXNjIGxpc3QtaW5z
+aWRlIG1hcmtlcjp0ZXh0LWdvbGQiPgogICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgPGxpPjxzdHJvbmc+QkJDIFdvcmxkIExvbmRvbjo8L3N0cm9uZz4g
+VW50ZXJ0aXRlbHVuZywgU2tyaXB0ZS48L2xpPgogICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgPGxpPjxzdHJvbmc+ZUJheSBHbWJIOjwvc3Ryb25nPiBM
+b2thbGlzaWVydW5nIEJlbnV0emVyb2JlcmZsw6RjaGUsIEFHQnMuPC9saT4K
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxsaT48c3Ryb25nPlN0aWZ0
+dW5nIFByZXXDn2lzY2hlciBLdWx0dXJiZXNpdHo6PC9zdHJvbmc+IEZhY2hh
+cnRpa2VsLjwvbGk+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8bGk+
+PHN0cm9uZz5NYXgtQm9ybi1JbnN0aXR1dDo8L3N0cm9uZz4gV2lzc2Vuc2No
+YWZ0bGljaGUgRm9yc2NodW5nc2JlcmljaHRlLjwvbGk+CiAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICA8bGk+PHN0cm9uZz5UaW1lT3V0IEd1aWRlczo8
+L3N0cm9uZz4gUmVpc2Vmw7xocmVyIEJlcmxpbiAmIE3DvG5jaGVuLjwvbGk+
+CiAgICAgICAgICAgICAgICAgICAgICAgIDwvdWw+CiAgICAgICAgICAgICAg
+ICAgICAgPC9kaXY+CiAgICAgICAgICAgICAgICA8L2Rpdj4KICAgICAgICAg
+ICAgPC9kaXY+CgogICAgICAgICAgICA8ZGl2IHgtc2hvdz0iYWN0aXZlVGFi
+ID09PSAnY2xpZW50cyciIHgtdHJhbnNpdGlvbi5vcGFjaXR5IHN0eWxlPSJk
+aXNwbGF5Om5vbmU7Ij4KICAgICAgICAgICAgICAgIDxkaXYgY2xhc3M9ImJn
+LXdoaXRlIHAtOCByb3VuZGVkLWxnIHNoYWRvdy1zbSI+CiAgICAgICAgICAg
+ICAgICAgICAgPGgzIGNsYXNzPSJ0ZXh0LXhsIGZvbnQtc2VyaWYgZm9udC1i
+b2xkIHRleHQtZ3JheS05MDAgbWItNiI+RGlyZWt0a3VuZGVuIChBdXN6dWcp
+PC9oMz4KICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzPSJncmlkIGdy
+aWQtY29scy0yIG1kOmdyaWQtY29scy0zIGxnOmdyaWQtY29scy00IGdhcC00
+IHRleHQtc20gdGV4dC1ncmF5LTYwMCI+CiAgICAgICAgICAgICAgICAgICAg
+ICAgIDxkaXYgY2xhc3M9InAtMyBiZy1ncmF5LTUwIHJvdW5kZWQgYm9yZGVy
+IGJvcmRlci1ncmF5LTEwMCI+QUlBRyBJbnRlcm5hdGlvbmFsPC9kaXY+CiAg
+ICAgICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3M9InAtMyBiZy1ncmF5
+LTUwIHJvdW5kZWQgYm9yZGVyIGJvcmRlci1ncmF5LTEwMCI+YWxpYXMgZmls
+bSBHbWJIPC9kaXY+CiAgICAgICAgICAgICAgICAgICAgICAgIDxkaXYgY2xh
+c3M9InAtMyBiZy1ncmF5LTUwIHJvdW5kZWQgYm9yZGVyIGJvcmRlci1ncmF5
+LTEwMCI+QXBvaW50IEZpbG08L2Rpdj4KICAgICAgICAgICAgICAgICAgICAg
+ICAgPGRpdiBjbGFzcz0icC0zIGJnLWdyYXktNTAgcm91bmRlZCBib3JkZXIg
+Ym9yZGVyLWdyYXktMTAwIj5BTlRIUk9QT1M8L2Rpdj4KICAgICAgICAgICAg
+ICAgICAgICAgICAgPGRpdiBjbGFzcz0icC0zIGJnLWdyYXktNTAgcm91bmRl
+ZCBib3JkZXIgYm9yZGVyLWdyYXktMTAwIj5CQkMgV29ybGQ8L2Rpdj4KICAg
+ICAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzcz0icC0zIGJnLWdyYXkt
+NTAgcm91bmRlZCBib3JkZXIgYm9yZGVyLWdyYXktMTAwIj5CaW50YW5nIEJ1
+Y2hzZXJ2aWNlPC9kaXY+CiAgICAgICAgICAgICAgICAgICAgICAgIDxkaXYg
+Y2xhc3M9InAtMyBiZy1ncmF5LTUwIHJvdW5kZWQgYm9yZGVyIGJvcmRlci1n
+cmF5LTEwMCI+RGFkZS1CZWhyaW5nPC9kaXY+CiAgICAgICAgICAgICAgICAg
+ICAgICAgIDxkaXYgY2xhc3M9InAtMyBiZy1ncmF5LTUwIHJvdW5kZWQgYm9y
+ZGVyIGJvcmRlci1ncmF5LTEwMCI+ZUJheSBHbWJIPC9kaXY+CiAgICAgICAg
+ICAgICAgICAgICAgICAgIDxkaXYgY2xhc3M9InAtMyBiZy1ncmF5LTUwIHJv
+dW5kZWQgYm9yZGVyIGJvcmRlci1ncmF5LTEwMCI+RWlrb24gTWVkaWEgR21i
+SDwvZGl2PgogICAgICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzPSJw
+LTMgYmctZ3JheS01MCByb3VuZGVkIGJvcmRlciBib3JkZXItZ3JheS0xMDAi
+PkVYUE8gMjAwMCBIYW5ub3ZlcjwvZGl2PgogICAgICAgICAgICAgICAgICAg
+ICAgICA8ZGl2IGNsYXNzPSJwLTMgYmctZ3JheS01MCByb3VuZGVkIGJvcmRl
+ciBib3JkZXItZ3JheS0xMDAiPkZvcmJvLCBTY2h3ZWl6PC9kaXY+CiAgICAg
+ICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3M9InAtMyBiZy1ncmF5LTUw
+IHJvdW5kZWQgYm9yZGVyIGJvcmRlci1ncmF5LTEwMCI+R2V5c3QgQUcsIFrD
+vHJpY2g8L2Rpdj4KICAgICAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFz
+cz0icC0zIGJnLWdyYXktNTAgcm91bmRlZCBib3JkZXIgYm9yZGVyLWdyYXkt
+MTAwIj5HdWlkZSB0byBJY2VsYW5kPC9kaXY+CiAgICAgICAgICAgICAgICAg
+ICAgICAgIDxkaXYgY2xhc3M9InAtMyBiZy1ncmF5LTUwIHJvdW5kZWQgYm9y
+ZGVyIGJvcmRlci1ncmF5LTEwMCI+SG9lcHBuZXIgQW53w6RsdGU8L2Rpdj4K
+ICAgICAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzcz0icC0zIGJnLWdy
+YXktNTAgcm91bmRlZCBib3JkZXIgYm9yZGVyLWdyYXktMTAwIj5JQiBWb2d0
+IEdtYkg8L2Rpdj4KICAgICAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFz
+cz0icC0zIGJnLWdyYXktNTAgcm91bmRlZCBib3JkZXIgYm9yZGVyLWdyYXkt
+MTAwIj5TdGVmYW4tTG9vc2UtVmVybGFnPC9kaXY+CiAgICAgICAgICAgICAg
+ICAgICAgICAgIDxkaXYgY2xhc3M9InAtMyBiZy1ncmF5LTUwIHJvdW5kZWQg
+Ym9yZGVyIGJvcmRlci1ncmF5LTEwMCI+UHJvamVjdCBBIFZlbnR1cmVzPC9k
+aXY+CiAgICAgICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3M9InAtMyBi
+Zy1ncmF5LTUwIHJvdW5kZWQgYm9yZGVyIGJvcmRlci1ncmF5LTEwMCI+U0VD
+VVJJVEFTIEJlcmxpbjwvZGl2PgogICAgICAgICAgICAgICAgICAgICAgICA8
+ZGl2IGNsYXNzPSJwLTMgYmctZ3JheS01MCByb3VuZGVkIGJvcmRlciBib3Jk
+ZXItZ3JheS0xMDAiPlNvbnkgRXVyb3BlIEdtYkg8L2Rpdj4KICAgICAgICAg
+ICAgICAgICAgICA8L2Rpdj4KICAgICAgICAgICAgICAgIDwvZGl2PgogICAg
+ICAgICAgICA8L2Rpdj4KCiAgICAgICAgICAgIDxkaXYgeC1zaG93PSJhY3Rp
+dmVUYWIgPT09ICdhZ2VuY2llcyciIHgtdHJhbnNpdGlvbi5vcGFjaXR5IHN0
+eWxlPSJkaXNwbGF5Om5vbmU7Ij4KICAgICAgICAgICAgICAgIDxkaXYgY2xh
+c3M9ImJnLXdoaXRlIHAtOCByb3VuZGVkLWxnIHNoYWRvdy1zbSI+CiAgICAg
+ICAgICAgICAgICAgICAgPGgzIGNsYXNzPSJ0ZXh0LXhsIGZvbnQtc2VyaWYg
+Zm9udC1ib2xkIHRleHQtZ3JheS05MDAgbWItNiI+UGFydG5lci1BZ2VudHVy
+ZW48L2gzPgogICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3M9ImdyaWQg
+Z3JpZC1jb2xzLTEgbWQ6Z3JpZC1jb2xzLTIgbGc6Z3JpZC1jb2xzLTMgZ2Fw
+LTQiPgogICAgICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzPSJmbGV4
+IGl0ZW1zLWNlbnRlciBzcGFjZS14LTMgcC0zIGJnLWdyYXktNTAgcm91bmRl
+ZCBzaGFkb3ctc20iPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgPHNw
+YW4gY2xhc3M9InRleHQtZ3JheS03MDAgZm9udC1tZWRpdW0iPkV1Ynlsb24g
+R21iSCwgQmVybGluPC9zcGFuPgogICAgICAgICAgICAgICAgICAgICAgICA8
+L2Rpdj4KICAgICAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzcz0iZmxl
+eCBpdGVtcy1jZW50ZXIgc3BhY2UteC0zIHAtMyBiZy1ncmF5LTUwIHJvdW5k
+ZWQgc2hhZG93LXNtIj4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxz
+cGFuIGNsYXNzPSJ0ZXh0LWdyYXktNzAwIGZvbnQtbWVkaXVtIj5FdXJvc2Ny
+aXB0IERldXRzY2hsYW5kPC9zcGFuPgogICAgICAgICAgICAgICAgICAgICAg
+ICA8L2Rpdj4KICAgICAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzcz0i
+ZmxleCBpdGVtcy1jZW50ZXIgc3BhY2UteC0zIHAtMyBiZy1ncmF5LTUwIHJv
+dW5kZWQgc2hhZG93LXNtIj4KICAgICAgICAgICAgICAgICAgICAgICAgICAg
+IDxzcGFuIGNsYXNzPSJ0ZXh0LWdyYXktNzAwIGZvbnQtbWVkaXVtIj5TcHJh
+Y2hlbmRpZW5zdCBLYXVjem9yPC9zcGFuPgogICAgICAgICAgICAgICAgICAg
+ICAgICA8L2Rpdj4KICAgICAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFz
+cz0iZmxleCBpdGVtcy1jZW50ZXIgc3BhY2UteC0zIHAtMyBiZy1ncmF5LTUw
+IHJvdW5kZWQgc2hhZG93LXNtIj4KICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgIDxzcGFuIGNsYXNzPSJ0ZXh0LWdyYXktNzAwIGZvbnQtbWVkaXVtIj5M
+aW5nb2xpbngsIEJlcmxpbjwvc3Bhbj4KICAgICAgICAgICAgICAgICAgICAg
+ICAgPC9kaXY+CiAgICAgICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3M9
+ImZsZXggaXRlbXMtY2VudGVyIHNwYWNlLXgtMyBwLTMgYmctZ3JheS01MCBy
+b3VuZGVkIHNoYWRvdy1zbSI+CiAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICA8c3BhbiBjbGFzcz0idGV4dC1ncmF5LTcwMCBmb250LW1lZGl1bSI+U0RM
+IEludGVybmF0aW9uYWw8L3NwYW4+CiAgICAgICAgICAgICAgICAgICAgICAg
+IDwvZGl2PgogICAgICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzPSJm
+bGV4IGl0ZW1zLWNlbnRlciBzcGFjZS14LTMgcC0zIGJnLWdyYXktNTAgcm91
+bmRlZCBzaGFkb3ctc20iPgogICAgICAgICAgICAgICAgICAgICAgICAgICAg
+PHNwYW4gY2xhc3M9InRleHQtZ3JheS03MDAgZm9udC1tZWRpdW0iPlRyYW5z
+TWlzc2lvbiBHYlI8L3NwYW4+CiAgICAgICAgICAgICAgICAgICAgICAgIDwv
+ZGl2PgogICAgICAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzcz0iZmxl
+eCBpdGVtcy1jZW50ZXIgc3BhY2UteC0zIHAtMyBiZy1ncmF5LTUwIHJvdW5k
+ZWQgc2hhZG93LXNtIj4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxz
+cGFuIGNsYXNzPSJ0ZXh0LWdyYXktNzAwIGZvbnQtbWVkaXVtIj5UcmFuc3Bh
+cmVudCBMYW5ndWFnZSBTb2x1dGlvbnM8L3NwYW4+CiAgICAgICAgICAgICAg
+ICAgICAgICAgIDwvZGl2PgogICAgICAgICAgICAgICAgICAgIDwvZGl2Pgog
+ICAgICAgICAgICAgICAgPC9kaXY+CiAgICAgICAgICAgIDwvZGl2PgogICAg
+ICAgIDwvZGl2PgogICAgPC9zZWN0aW9uPgoKICAgIDxzZWN0aW9uIGlkPSJh
+Ym91dCIgY2xhc3M9InB5LTI0IGJnLXdoaXRlIj4KICAgICAgICA8ZGl2IGNs
+YXNzPSJtYXgtdy03eGwgbXgtYXV0byBweC00IHNtOnB4LTYgbGc6cHgtOCI+
+CiAgICAgICAgICAgIDxkaXYgY2xhc3M9ImZsZXggZmxleC1jb2wgbGc6Zmxl
+eC1yb3cgZ2FwLTE2IGl0ZW1zLWNlbnRlciI+CiAgICAgICAgICAgICAgICA8
+ZGl2IGNsYXNzPSJsZzp3LTEvMiI+CiAgICAgICAgICAgICAgICAgICAgPGRp
+diBjbGFzcz0icmVsYXRpdmUiPgogICAgICAgICAgICAgICAgICAgICAgICA8
+ZGl2IGNsYXNzPSJ3LWZ1bGwgaC05NiBiZy1ncmF5LTIwMCByb3VuZGVkLWxn
+IHNoYWRvdy1sZyBvdmVyZmxvdy1oaWRkZW4gcmVsYXRpdmUgZmxleCBpdGVt
+cy1jZW50ZXIganVzdGlmeS1jZW50ZXIiPgogICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgPGltZyBzcmM9ImltYWdlcy9kdW1teS0xMzYweDg0MC1EcmFn
+b25mbHkuanBnIiBhbHQ9Ik1laWtlIEjDtnBmbmVyIFBvcnRyYWl0IiBjbGFz
+cz0idy1mdWxsIGgtZnVsbCBvYmplY3QtY292ZXIiPgogICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgPC9kaXY+CiAgICAgICAgICAgICAgICAgICAgICAg
+IDxkaXYgY2xhc3M9ImFic29sdXRlIC1ib3R0b20tNiAtcmlnaHQtNiBiZy13
+aGl0ZSBwLTYgcm91bmRlZCBzaGFkb3ctbGcgbWF4LXcteHMgaGlkZGVuIG1k
+OmJsb2NrIj4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxwIGNsYXNz
+PSJmb250LXNlcmlmIHRleHQtYnJhbmQgdGV4dC1sZyBpdGFsaWMiPiJRdWFs
+aXTDpHQgZHVyY2ggS29tcGV0ZW56IHVuZCBFcmZhaHJ1bmcuIjwvcD4KICAg
+ICAgICAgICAgICAgICAgICAgICAgPC9kaXY+CiAgICAgICAgICAgICAgICAg
+ICAgPC9kaXY+CiAgICAgICAgICAgICAgICA8L2Rpdj4KICAgICAgICAgICAg
+ICAgIDxkaXYgY2xhc3M9ImxnOnctMS8yIj4KICAgICAgICAgICAgICAgICAg
+ICA8aDIgY2xhc3M9InRleHQtM3hsIGZvbnQtc2VyaWYgZm9udC1ib2xkIHRl
+eHQtYnJhbmQgbWItNiI+TWVpa2UgSMO2cGZuZXI8L2gyPgogICAgICAgICAg
+ICAgICAgICAgIDxoMyBjbGFzcz0idGV4dC1sZyB0ZXh0LWdyYXktNTAwIGZv
+bnQtbWVkaXVtIG1iLTYiPkRpcGxvbS3DnGJlcnNldHplcmluIChGQVNLKSAm
+IEV1cm9wZWFuIE1BIGluIExpbmd1aXN0aWNzPC9oMz4KICAgICAgICAgICAg
+ICAgICAgICAKICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzPSJzcGFj
+ZS15LTQgdGV4dC1ncmF5LTYwMCBtYi04Ij4KICAgICAgICAgICAgICAgICAg
+ICAgICAgPHA+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBTZWl0IDE5
+OTcgYmluIGljaCBhbHMgZnJlaWJlcnVmbGljaGUgw5xiZXJzZXR6ZXJpbiB0
+w6R0aWcuIE1laW5lIEF1c2JpbGR1bmcgYW4gZGVyIHJlbm9tbWllcnRlbiAK
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxzdHJvbmc+RkFTSyBHZXJt
+ZXJzaGVpbTwvc3Ryb25nPiBzb3dpZSBTdHVkaWVuYXVmZW50aGFsdGUgaW4g
+TWFuY2hlc3RlciB1bmQgQmVybGluIGJpbGRlbiBkYXMgRnVuZGFtZW50IG1l
+aW5lciBBcmJlaXQuCiAgICAgICAgICAgICAgICAgICAgICAgIDwvcD4KICAg
+ICAgICAgICAgICAgICAgICAgICAgPHA+CiAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICBJY2ggYmlldGUgbmljaHQgbnVyIGRpZSBibG/Dn2Ugw5xiZXJz
+ZXR6dW5nLCBzb25kZXJuIGRpZSBrdWx0dXJlbGxlIEFkYXB0aW9uIElocmVy
+IFRleHRlLiAKICAgICAgICAgICAgICAgICAgICAgICAgICAgIER1cmNoIG1l
+aW4gTmV0endlcmsgYW4gTXV0dGVyc3ByYWNobGVybiBnYXJhbnRpZXJlIGlj
+aCBow7ZjaHN0ZSBBdXRoZW50aXppdMOkdCBpbiBEZXV0c2NoLCBFbmdsaXNj
+aCB1bmQgSXRhbGllbmlzY2guCiAgICAgICAgICAgICAgICAgICAgICAgIDwv
+cD4KICAgICAgICAgICAgICAgICAgICA8L2Rpdj4KCiAgICAgICAgICAgICAg
+ICAgICAgPGRpdiBjbGFzcz0iZ3JpZCBncmlkLWNvbHMtMiBnYXAtNCI+CiAg
+ICAgICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3M9ImJvcmRlci1sLTIg
+Ym9yZGVyLWJyYW5kIHBsLTQiPgogICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgPHNwYW4gY2xhc3M9ImJsb2NrIHRleHQtMnhsIGZvbnQtYm9sZCB0ZXh0
+LWdyYXktOTAwIj4xOTk3PC9zcGFuPgogICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgPHNwYW4gY2xhc3M9InRleHQtc20gdGV4dC1ncmF5LTUwMCI+RnJl
+aWJlcnVmbGljaCB0w6R0aWcgc2VpdDwvc3Bhbj4KICAgICAgICAgICAgICAg
+ICAgICAgICAgPC9kaXY+CiAgICAgICAgICAgICAgICAgICAgICAgIDxkaXYg
+Y2xhc3M9ImJvcmRlci1sLTIgYm9yZGVyLWJyYW5kIHBsLTQiPgogICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgPHNwYW4gY2xhc3M9ImJsb2NrIHRleHQt
+MnhsIGZvbnQtYm9sZCB0ZXh0LWdyYXktOTAwIj4zPC9zcGFuPgogICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgPHNwYW4gY2xhc3M9InRleHQtc20gdGV4
+dC1ncmF5LTUwMCI+QXJiZWl0c3NwcmFjaGVuPC9zcGFuPgogICAgICAgICAg
+ICAgICAgICAgICAgICA8L2Rpdj4KICAgICAgICAgICAgICAgICAgICA8L2Rp
+dj4KICAgICAgICAgICAgICAgIDwvZGl2PgogICAgICAgICAgICA8L2Rpdj4K
+ICAgICAgICA8L2Rpdj4KICAgIDwvc2VjdGlvbj4KCiAgICA8c2VjdGlvbiBp
+ZD0iY29udGFjdCIgY2xhc3M9InB5LTI0IGJnLWJyYW5kIHRleHQtd2hpdGUg
+cmVsYXRpdmUiPgogICAgICAgIDxkaXYgY2xhc3M9Im1heC13LTR4bCBteC1h
+dXRvIHB4LTQgc206cHgtNiBsZzpweC04IHJlbGF0aXZlIHotMTAiPgogICAg
+ICAgICAgICA8ZGl2IGNsYXNzPSJiZy13aGl0ZSB0ZXh0LWdyYXktODAwIHJv
+dW5kZWQteGwgc2hhZG93LTJ4bCBvdmVyZmxvdy1oaWRkZW4iPgogICAgICAg
+ICAgICAgICAgPGRpdiBjbGFzcz0iZ3JpZCBtZDpncmlkLWNvbHMtMiI+CiAg
+ICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgPGRpdiBj
+bGFzcz0icC0xMCBiZy1ncmF5LTUwIj4KICAgICAgICAgICAgICAgICAgICAg
+ICAgPGgyIGNsYXNzPSJ0ZXh0LTJ4bCBmb250LXNlcmlmIGZvbnQtYm9sZCB0
+ZXh0LWJyYW5kIG1iLTYiPktvbnRha3Q8L2gyPgogICAgICAgICAgICAgICAg
+ICAgICAgICA8ZGl2IGNsYXNzPSJzcGFjZS15LTYiPgogICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgPGRpdj4KICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICA8aDQgY2xhc3M9InRleHQteHMgZm9udC1ib2xkIHRleHQtZ3Jh
+eS00MDAgdXBwZXJjYXNlIHRyYWNraW5nLXdpZGVyIG1iLTEiPkRldXRzY2hs
+YW5kPC9oND4KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8cCBj
+bGFzcz0iZm9udC1tZWRpdW0gdGV4dC1ncmF5LTgwMCI+RC03NjgyOSBMYW5k
+YXUgKFBmYWx6KTwvcD4KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICA8cCBjbGFzcz0idGV4dC1icmFuZCI+KzQ5ICgwKTE3MyA2MDUgNjggMDQ8
+L3A+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8L2Rpdj4KICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgIDxkaXY+CiAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgPGg0IGNsYXNzPSJ0ZXh0LXhzIGZvbnQtYm9sZCB0
+ZXh0LWdyYXktNDAwIHVwcGVyY2FzZSB0cmFja2luZy13aWRlciBtYi0xIj5T
+Y2h3ZWl6PC9oND4KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8
+cCBjbGFzcz0idGV4dC1icmFuZCI+KzQxICgwKTc2IDQ0NiA4NCAwNDwvcD4K
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvZGl2PgogICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgPGRpdj4KICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICA8aDQgY2xhc3M9InRleHQteHMgZm9udC1ib2xkIHRleHQt
+Z3JheS00MDAgdXBwZXJjYXNlIHRyYWNraW5nLXdpZGVyIG1iLTEiPkUtTWFp
+bDwvaDQ+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPGEgaHJl
+Zj0ibWFpbHRvOmluZm9AbWVpa2Vob2VwZm5lci5kZSIgY2xhc3M9InRleHQt
+YnJhbmQgdW5kZXJsaW5lIj5pbmZvQG1laWtlaG9lcGZuZXIuZGU8L2E+CiAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICA8L2Rpdj4KICAgICAgICAgICAg
+ICAgICAgICAgICAgPC9kaXY+CiAgICAgICAgICAgICAgICAgICAgPC9kaXY+
+CgogICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3M9InAtMTAiPgogICAg
+ICAgICAgICAgICAgICAgICAgICA8Zm9ybSBuYW1lPSJjb250YWN0IiBtZXRo
+b2Q9IlBPU1QiIGRhdGEtbmV0bGlmeT0idHJ1ZSIgY2xhc3M9InNwYWNlLXkt
+NCI+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8ZGl2PgogICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgIDxsYWJlbCBjbGFzcz0iYmxvY2sg
+dGV4dC14cyBmb250LWJvbGQgdGV4dC1ncmF5LTUwMCB1cHBlcmNhc2UgbWIt
+MSI+TmFtZTwvbGFiZWw+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgPGlucHV0IHR5cGU9InRleHQiIG5hbWU9Im5hbWUiIGNsYXNzPSJ3LWZ1
+bGwgYm9yZGVyLWdyYXktMjAwIGJvcmRlci1iLTIgYmctdHJhbnNwYXJlbnQg
+cHktMiBmb2N1czpvdXRsaW5lLW5vbmUgZm9jdXM6Ym9yZGVyLWJyYW5kIHRy
+YW5zaXRpb24tY29sb3JzIiBwbGFjZWhvbGRlcj0iSWhyIE5hbWUiPgogICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgPC9kaXY+CiAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICA8ZGl2PgogICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgIDxsYWJlbCBjbGFzcz0iYmxvY2sgdGV4dC14cyBmb250LWJvbGQg
+dGV4dC1ncmF5LTUwMCB1cHBlcmNhc2UgbWItMSI+RS1NYWlsPC9sYWJlbD4K
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8aW5wdXQgdHlwZT0i
+ZW1haWwiIG5hbWU9ImVtYWlsIiBjbGFzcz0idy1mdWxsIGJvcmRlci1ncmF5
+LTIwMCBib3JkZXItYi0yIGJnLXRyYW5zcGFyZW50IHB5LTIgZm9jdXM6b3V0
+bGluZS1ub25lIGZvY3VzOmJvcmRlci1icmFuZCB0cmFuc2l0aW9uLWNvbG9y
+cyIgcGxhY2Vob2xkZXI9ImlocmVAZW1haWwuZGUiPgogICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgPC9kaXY+CiAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICA8ZGl2PgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxs
+YWJlbCBjbGFzcz0iYmxvY2sgdGV4dC14cyBmb250LWJvbGQgdGV4dC1ncmF5
+LTUwMCB1cHBlcmNhc2UgbWItMSI+TmFjaHJpY2h0PC9sYWJlbD4KICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICA8dGV4dGFyZWEgbmFtZT0ibWVz
+c2FnZSIgcm93cz0iMyIgY2xhc3M9InctZnVsbCBib3JkZXItZ3JheS0yMDAg
+Ym9yZGVyLWItMiBiZy10cmFuc3BhcmVudCBweS0yIGZvY3VzOm91dGxpbmUt
+bm9uZSBmb2N1czpib3JkZXItYnJhbmQgdHJhbnNpdGlvbi1jb2xvcnMiIHBs
+YWNlaG9sZGVyPSJJaHJlIEFuZnJhZ2UuLi4iPjwvdGV4dGFyZWE+CiAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICA8L2Rpdj4KICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgIDxidXR0b24gdHlwZT0ic3VibWl0IiBjbGFzcz0idy1m
+dWxsIGJnLWJyYW5kIHRleHQtd2hpdGUgZm9udC1ib2xkIHB5LTMgcm91bmRl
+ZCBtdC00IGhvdmVyOmJnLWJyYW5kLWRhcmsgdHJhbnNpdGlvbi1jb2xvcnMi
+PgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIE5hY2hyaWNodCBz
+ZW5kZW4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvYnV0dG9uPgog
+ICAgICAgICAgICAgICAgICAgICAgICA8L2Zvcm0+CiAgICAgICAgICAgICAg
+ICAgICAgPC9kaXY+CgogICAgICAgICAgICAgICAgPC9kaXY+CiAgICAgICAg
+ICAgIDwvZGl2PgogICAgICAgIDwvZGl2PgogICAgPC9zZWN0aW9uPgoKICAg
+IDxmb290ZXIgY2xhc3M9ImJnLWJyYW5kLWRhcmsgdGV4dC1ibHVlLTMwMC82
+MCBweS0xMiB0ZXh0LXNtIGJvcmRlci10IGJvcmRlci13aGl0ZS81Ij4KICAg
+ICAgICA8ZGl2IGNsYXNzPSJtYXgtdy03eGwgbXgtYXV0byB0ZXh0LWNlbnRl
+ciI+CiAgICAgICAgICAgIDxwPiZjb3B5OyAyMDEyIE1laWtlIEjDtnBmbmVy
+LiBBbGxlIFJlY2h0ZSB2b3JiZWhhbHRlbi48L3A+CiAgICAgICAgICAgIDxk
+aXYgY2xhc3M9Im10LTQgc3BhY2UteC00Ij4KICAgICAgICAgICAgICAgIDxi
+dXR0b24gQGNsaWNrPSJtb2RhbCA9ICdpbXByZXNzdW0nIiBjbGFzcz0iaG92
+ZXI6dGV4dC13aGl0ZSB0cmFuc2l0aW9uLWNvbG9ycyI+SW1wcmVzc3VtPC9i
+dXR0b24+CiAgICAgICAgICAgICAgICA8YnV0dG9uIEBjbGljaz0ibW9kYWwg
+PSAncHJpdmFjeSciIGNsYXNzPSJob3Zlcjp0ZXh0LXdoaXRlIHRyYW5zaXRp
+b24tY29sb3JzIj5EYXRlbnNjaHV0ejwvYnV0dG9uPgogICAgICAgICAgICA8
+L2Rpdj4KICAgICAgICA8L2Rpdj4KICAgIDwvZm9vdGVyPgoKICAgIDwhLS0g
+Q29va2llIEJhbm5lciAtLT4KICAgIDxkaXYgeC1jbG9hayB4LXNob3c9InNo
+b3dDb29raWVCYW5uZXIiIAogICAgICAgICBjbGFzcz0iZml4ZWQgaW5zZXQt
+eC0wIGJvdHRvbS0wIHotNTAgcC00IGJnLWdyYXktOTAwIHRleHQtd2hpdGUg
+c2hhZG93LWxnIG1kOmZsZXggbWQ6aXRlbXMtY2VudGVyIG1kOmp1c3RpZnkt
+YmV0d2VlbiI+CiAgICAgICAgPGRpdiBjbGFzcz0ibWF4LXctN3hsIG14LWF1
+dG8gZmxleCBmbGV4LWNvbCBtZDpmbGV4LXJvdyBpdGVtcy1jZW50ZXIganVz
+dGlmeS1iZXR3ZWVuIGdhcC00Ij4KICAgICAgICAgICAgPHAgY2xhc3M9InRl
+eHQtc20gdGV4dC1jZW50ZXIgbWQ6dGV4dC1sZWZ0Ij4KICAgICAgICAgICAg
+ICAgIFdpciB2ZXJ3ZW5kZW4gQ29va2llcywgdW0gSWhyZSBFcmZhaHJ1bmcg
+YXVmIHVuc2VyZXIgV2Vic2l0ZSB6dSB2ZXJiZXNzZXJuLiBEdXJjaCBkaWUg
+TnV0enVuZyB1bnNlcmVyIFdlYnNpdGUgc3RpbW1lbiBTaWUgZGVyIFZlcndl
+bmR1bmcgdm9uIENvb2tpZXMgenUuCiAgICAgICAgICAgICAgICA8YnV0dG9u
+IEBjbGljaz0ibW9kYWwgPSAncHJpdmFjeSciIGNsYXNzPSJ0ZXh0LWdvbGQg
+aG92ZXI6dW5kZXJsaW5lIG1sLTEiPldlaXRlcmUgSW5mb3JtYXRpb25lbjwv
+YnV0dG9uPgogICAgICAgICAgICA8L3A+CiAgICAgICAgICAgIDxkaXYgY2xh
+c3M9ImZsZXggZmxleC1zaHJpbmstMCBnYXAtMyBtdC00IG1kOm10LTAiPgog
+ICAgICAgICAgICAgICAgPGJ1dHRvbiBAY2xpY2s9ImNvb2tpZUFjY2VwdGVk
+ID0gdHJ1ZTsgbG9jYWxTdG9yYWdlLnNldEl0ZW0oJ2Nvb2tpZUFjY2VwdGVk
+JywgJ3RydWUnKTsgc2hvd0Nvb2tpZUJhbm5lciA9IGZhbHNlOyIgCiAgICAg
+ICAgICAgICAgICAgICAgICAgIGNsYXNzPSJiZy1nb2xkIHRleHQtZ3JheS05
+MDAgcHgtNSBweS0yIHJvdW5kZWQgdGV4dC1zbSBmb250LW1lZGl1bSBob3Zl
+cjpiZy15ZWxsb3ctNjAwIHRyYW5zaXRpb24tY29sb3JzIHNoYWRvdy1sZyI+
+CiAgICAgICAgICAgICAgICAgICAgQ29va2llcyBha3plcHRpZXJlbgogICAg
+ICAgICAgICAgICAgPC9idXR0b24+CiAgICAgICAgICAgIDwvZGl2PgogICAg
+ICAgIDwvZGl2PgogICAgPC9kaXY+CgogICAgPGRpdiB4LXNob3c9Im1vZGFs
+IiBjbGFzcz0iZml4ZWQgaW5zZXQtMCB6LTUwIG92ZXJmbG93LXktYXV0byIg
+YXJpYS1sYWJlbGxlZGJ5PSJtb2RhbC10aXRsZSIgcm9sZT0iZGlhbG9nIiBh
+cmlhLW1vZGFsPSJ0cnVlIiBzdHlsZT0iZGlzcGxheTogbm9uZTsiPgogICAg
+ICAgIDxkaXYgY2xhc3M9ImZsZXggaXRlbXMtZW5kIGp1c3RpZnktY2VudGVy
+IG1pbi1oLXNjcmVlbiBwdC00IHB4LTQgcGItMjAgdGV4dC1jZW50ZXIgc206
+YmxvY2sgc206cC0wIj4KICAgICAgICAgICAgPGRpdiB4LXNob3c9Im1vZGFs
+IiB4LXRyYW5zaXRpb24ub3BhY2l0eSBjbGFzcz0iZml4ZWQgaW5zZXQtMCBi
+Zy1ncmF5LTUwMCBiZy1vcGFjaXR5LTc1IHRyYW5zaXRpb24tb3BhY2l0eSIg
+QGNsaWNrPSJtb2RhbCA9IG51bGwiPjwvZGl2PgoKICAgICAgICAgICAgPHNw
+YW4gY2xhc3M9ImhpZGRlbiBzbTppbmxpbmUtYmxvY2sgc206YWxpZ24tbWlk
+ZGxlIHNtOmgtc2NyZWVuIiBhcmlhLWhpZGRlbj0idHJ1ZSI+JiM4MjAzOzwv
+c3Bhbj4KCiAgICAgICAgICAgIDxkaXYgeC1zaG93PSJtb2RhbCIgeC10cmFu
+c2l0aW9uLnNjYWxlIGNsYXNzPSJpbmxpbmUtYmxvY2sgYWxpZ24tYm90dG9t
+IGJnLXdoaXRlIHJvdW5kZWQtbGcgdGV4dC1sZWZ0IG92ZXJmbG93LWhpZGRl
+biBzaGFkb3cteGwgdHJhbnNmb3JtIHRyYW5zaXRpb24tYWxsIHNtOm15LTgg
+c206YWxpZ24tbWlkZGxlIHNtOm1heC13LTN4bCBzbTp3LWZ1bGwiPgogICAg
+ICAgICAgICAgICAgCiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzPSJhYnNv
+bHV0ZSB0b3AtMCByaWdodC0wIHB0LTQgcHItNCI+CiAgICAgICAgICAgICAg
+ICAgICAgPGJ1dHRvbiBAY2xpY2s9Im1vZGFsID0gbnVsbCIgY2xhc3M9ImJn
+LXdoaXRlIHJvdW5kZWQtbWQgdGV4dC1ncmF5LTQwMCBob3Zlcjp0ZXh0LWdy
+YXktNTAwIGZvY3VzOm91dGxpbmUtbm9uZSI+CiAgICAgICAgICAgICAgICAg
+ICAgICAgIDxzdmcgY2xhc3M9ImgtNiB3LTYiIGZpbGw9Im5vbmUiIHZpZXdC
+b3g9IjAgMCAyNCAyNCIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiPgogICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgPHBhdGggc3Ryb2tlLWxpbmVjYXA9InJv
+dW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjIi
+IGQ9Ik02IDE4TDE4IDZNNiA2bDEyIDEyIiAvPgogICAgICAgICAgICAgICAg
+ICAgICAgICA8L3N2Zz4KICAgICAgICAgICAgICAgICAgICA8L2J1dHRvbj4K
+ICAgICAgICAgICAgICAgIDwvZGl2PgoKICAgICAgICAgICAgICAgIDxkaXYg
+eC1zaG93PSJtb2RhbCA9PT0gJ2ltcHJlc3N1bSciIGNsYXNzPSJwLTgiPgog
+ICAgICAgICAgICAgICAgICAgIDxoMyBjbGFzcz0idGV4dC0yeGwgZm9udC1z
+ZXJpZiBmb250LWJvbGQgdGV4dC1icmFuZCBtYi02Ij5JbXByZXNzdW08L2gz
+PgogICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3M9InByb3NlIHByb3Nl
+LXNtIHRleHQtZ3JheS02MDAiPgogICAgICAgICAgICAgICAgICAgICAgICA8
+cD48c3Ryb25nPk1laWtlIEjDtnBmbmVyPC9zdHJvbmc+PGJyPgogICAgICAg
+ICAgICAgICAgICAgICAgICBEaXBsLi3DnGJlcnNldHplcmluIGbDvHIgRW5n
+bGlzY2gsIERldXRzY2ggdW5kIEl0YWxpZW5pc2NoPGJyPgogICAgICAgICAg
+ICAgICAgICAgICAgICBHZXJpY2h0bGljaCBlcm3DpGNodGlndCAtIEV1cm9w
+ZWFuIE1BIGluIExpbmd1aXN0aWNzPC9wPgogICAgICAgICAgICAgICAgICAg
+ICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgPHA+QmVybGluZXIgU3Ry
+LiAxMjxicj4KICAgICAgICAgICAgICAgICAgICAgICAgRC03NjgyOSBMYW5k
+YXU8L3A+CiAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAg
+ICAgICAgICAgICA8cD5UZWxlZm9uOiArNDkgKDApMTczIDYwNSA2OCAwNDxi
+cj4KICAgICAgICAgICAgICAgICAgICAgICAgRS1NYWlsOiBpbmZvQG1laWtl
+aG9lcGZuZXIuZGU8L3A+CiAgICAgICAgICAgICAgICAgICAgICAgIAogICAg
+ICAgICAgICAgICAgICAgICAgICA8cD48c3Ryb25nPlVtc2F0enN0ZXVlci1J
+ZGVudGlmaWthdGlvbnNudW1tZXIgZ2Vtw6TDnyDCpyAyN2EgVW1zYXR6c3Rl
+dWVyZ2VzZXR6Ojwvc3Ryb25nPjxicj4KICAgICAgICAgICAgICAgICAgICAg
+ICAgREUgMTg1NTM1Nzk5PC9wPgogICAgICAgICAgICAgICAgICAgICAgICAK
+ICAgICAgICAgICAgICAgICAgICAgICAgPHA+PHN0cm9uZz5IYWZ0dW5nc2hp
+bndlaXM6PC9zdHJvbmc+PGJyPgogICAgICAgICAgICAgICAgICAgICAgICBU
+cm90eiBzb3JnZsOkbHRpZ2VyIGluaGFsdGxpY2hlciBLb250cm9sbGUgw7xi
+ZXJuZWhtZW4gd2lyIGtlaW5lIEhhZnR1bmcgZsO8ciBkaWUgSW5oYWx0ZSBl
+eHRlcm5lciBMaW5rcy4gRsO8ciBkZW4gSW5oYWx0IGRlciB2ZXJsaW5rdGVu
+IFNlaXRlbiBzaW5kIGF1c3NjaGxpZcOfbGljaCBkZXJlbiBCZXRyZWliZXIg
+dmVyYW50d29ydGxpY2guPC9wPgogICAgICAgICAgICAgICAgICAgICAgICAK
+ICAgICAgICAgICAgICAgICAgICAgICAgPHAgY2xhc3M9InRleHQteHMgdGV4
+dC1ncmF5LTQwMCBtdC04Ij5XZWJkZXNpZ246IHJpbmNvbi5kZSB8IEZvdG9z
+OiDCqSBmb3RvbGlhPC9wPgogICAgICAgICAgICAgICAgICAgIDwvZGl2Pgog
+ICAgICAgICAgICAgICAgPC9kaXY+CgogICAgICAgICAgICAgICAgPGRpdiB4
+LXNob3c9Im1vZGFsID09PSAncHJpdmFjeSciIGNsYXNzPSJwLTgiPgogICAg
+ICAgICAgICAgICAgICAgIDxoMyBjbGFzcz0idGV4dC0yeGwgZm9udC1zZXJp
+ZiBmb250LWJvbGQgdGV4dC1icmFuZCBtYi02Ij5EYXRlbnNjaHV0emVya2zD
+pHJ1bmc8L2gzPgogICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3M9InBy
+b3NlIHByb3NlLXNtIHRleHQtZ3JheS02MDAgbWF4LWgtWzYwdmhdIG92ZXJm
+bG93LXktYXV0byBwci0yIj4KICAgICAgICAgICAgICAgICAgICAgICAgPGg0
+IGNsYXNzPSJmb250LWJvbGQgdGV4dC1ncmF5LTkwMCBtdC00Ij5WZXJhbnR3
+b3J0bGljaGVyPC9oND4KICAgICAgICAgICAgICAgICAgICAgICAgPHA+TWVp
+a2UgSMO2cGZuZXIsIEJlcmxpbmVyIFN0ci4gMTIsIEQtNzY4MjkgTGFuZGF1
+LCBUZWxlZm9uOiArNDkgKDApMTczIDYwNSA2OCAwNCwgRS1NYWlsOiBpbmZv
+QG1laWtlaG9lcGZuZXIuZGU8L3A+CgogICAgICAgICAgICAgICAgICAgICAg
+ICA8aDQgY2xhc3M9ImZvbnQtYm9sZCB0ZXh0LWdyYXktOTAwIG10LTQiPkFs
+bGdlbWVpbmVzPC9oND4KICAgICAgICAgICAgICAgICAgICAgICAgPHA+V2ly
+IG5laG1lbiBkZW4gU2NodXR6IElocmVyIHBlcnPDtm5saWNoZW4gRGF0ZW4g
+ZXJuc3QuIERpZSBOdXR6dW5nIHVuc2VyZXIgV2Vic2VpdGUgaXN0IGluIGRl
+ciBSZWdlbCBvaG5lIEFuZ2FiZSBwZXJzb25lbmJlem9nZW5lciBEYXRlbiBt
+w7ZnbGljaC4gU293ZWl0IGF1ZiB1bnNlcmVuIFNlaXRlbiBwZXJzb25lbmJl
+em9nZW5lIERhdGVuIChiZWlzcGllbHN3ZWlzZSBOYW1lLCBBbnNjaHJpZnQg
+b2RlciBFLU1haWwtQWRyZXNzZW4pIGVyaG9iZW4gd2VyZGVuLCBlcmZvbGd0
+IGRpZXMsIHNvd2VpdCBtw7ZnbGljaCwgc3RldHMgYXVmIGZyZWl3aWxsaWdl
+ciBCYXNpcy48L3A+CgogICAgICAgICAgICAgICAgICAgICAgICA8aDQgY2xh
+c3M9ImZvbnQtYm9sZCB0ZXh0LWdyYXktOTAwIG10LTQiPktvbnRha3Rmb3Jt
+dWxhcjwvaDQ+CiAgICAgICAgICAgICAgICAgICAgICAgIDxwPldlbm4gU2ll
+IHVucyBwZXIgS29udGFrdGZvcm11bGFyIEFuZnJhZ2VuIHp1a29tbWVuIGxh
+c3Nlbiwgd2VyZGVuIElocmUgQW5nYWJlbiBhdXMgZGVtIEFuZnJhZ2Vmb3Jt
+dWxhciBpbmtsdXNpdmUgZGVyIHZvbiBJaG5lbiBkb3J0IGFuZ2VnZWJlbmVu
+IEtvbnRha3RkYXRlbiB6d2Vja3MgQmVhcmJlaXR1bmcgZGVyIEFuZnJhZ2Ug
+dW5kIGbDvHIgZGVuIEZhbGwgdm9uIEFuc2NobHVzc2ZyYWdlbiBiZWkgdW5z
+IGdlc3BlaWNoZXJ0LiBEaWVzZSBEYXRlbiBnZWJlbiB3aXIgbmljaHQgb2hu
+ZSBJaHJlIEVpbndpbGxpZ3VuZyB3ZWl0ZXIuPC9wPgoKICAgICAgICAgICAg
+ICAgICAgICAgICAgPGg0IGNsYXNzPSJmb250LWJvbGQgdGV4dC1ncmF5LTkw
+MCBtdC00Ij5TZXJ2ZXItTG9nLUZpbGVzPC9oND4KICAgICAgICAgICAgICAg
+ICAgICAgICAgPHA+RGVyIFByb3ZpZGVyIGRlciBTZWl0ZW4gZXJoZWJ0IHVu
+ZCBzcGVpY2hlcnQgYXV0b21hdGlzY2ggSW5mb3JtYXRpb25lbiBpbiBzbyBn
+ZW5hbm50ZW4gU2VydmVyLUxvZyBGaWxlcywgZGllIElociBCcm93c2VyIGF1
+dG9tYXRpc2NoIGFuIHVucyDDvGJlcm1pdHRlbHQuIERpZXMgc2luZDogQnJv
+d3NlcnR5cC8gQnJvd3NlcnZlcnNpb24sIHZlcndlbmRldGVzIEJldHJpZWJz
+c3lzdGVtLCBSZWZlcnJlciBVUkwsIEhvc3RuYW1lIGRlcyB6dWdyZWlmZW5k
+ZW4gUmVjaG5lcnMsIFVocnplaXQgZGVyIFNlcnZlcmFuZnJhZ2UuIERpZXNl
+IERhdGVuIHNpbmQgbmljaHQgYmVzdGltbXRlbiBQZXJzb25lbiB6dW9yZGVu
+YmFyLjwvcD4KCiAgICAgICAgICAgICAgICAgICAgICAgIDxoNCBjbGFzcz0i
+Zm9udC1ib2xkIHRleHQtZ3JheS05MDAgbXQtNCI+U1NMLVZlcnNjaGzDvHNz
+ZWx1bmc8L2g0PgogICAgICAgICAgICAgICAgICAgICAgICA8cD5EaWVzZSBT
+ZWl0ZSBudXR6dCBhdXMgR3LDvG5kZW4gZGVyIFNpY2hlcmhlaXQgdW5kIHp1
+bSBTY2h1dHogZGVyIMOcYmVydHJhZ3VuZyB2ZXJ0cmF1bGljaGVyIEluaGFs
+dGUsIHdpZSB6dW0gQmVpc3BpZWwgZGVyIEFuZnJhZ2VuLCBkaWUgU2llIGFu
+IHVucyBhbHMgU2VpdGVuYmV0cmVpYmVyIHNlbmRlbiwgZWluZSBTU0wKPC9w
+PgogICAgICAgICAgICAgICAgICAgIDwvZGl2PgogICAgICAgICAgICAgICAg
+PC9kaXY+CiAgICAgICAgICAgIDwvZGl2PgogICAgICAgIDwvZGl2PgogICAg
+PC9kaXY+CjwvYm9keT4KPC9odG1sPg==
